@@ -1,0 +1,6 @@
+# Obsidian Related
+.obsidian/*
+!.obsidian/plugins/
+!.obsidian/community-plugins.json
+!.obsidian/core-plugins.json
+!.obsidian/core-plugins-migration.json
