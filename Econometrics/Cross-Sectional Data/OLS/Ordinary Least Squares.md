@@ -208,3 +208,86 @@ where:
 >	1. the partial effect of $x_{2}$ on $\hat{y}$  is $0$ $\to$ $\hat{\beta}_{2}=0$
 >	2. $x_{1}$ and $x_2$ are uncorrelated in the sample $\to$ $\tilde{\delta}_{1}=0$
 
+## Properties of the OLS Estimators
+
+#### Theorem: Unbiasedness of Sampling [[Expected Values of OLS Estimators]]
+Under Assumptions <mark style="background: #ADCCFFA6;">MLR.1</mark> through <mark style="background: #ADCCFFA6;">MLR.4</mark> we have:
+$$
+\mathbb{E}(\hat{\beta}_{j})=\beta_{j} \quad ,j=0,1,\ldots,k
+$$
+
+#### Theorem: Sampling Variances of the OLS Estimators
+Under Assumptions <mark style="background: #CACFD9A6;">MLR.1</mark> through<mark style="background: #CACFD9A6;"> MLR.5</mark>,
+
+$$\mathrm{Var}(\hat{\beta}_{j}) = \frac{\sigma^{2}}{\mathrm{SST}_{j}\cdot(1-R_{j}^2)} \quad ,j=1,\dots,k$$
+where:
+- $\mathrm{SST}=\sum_{i=1}^{n} (x_{ij}-\bar{x}_{j})^{2}$
+- $R_{j}^2$ is R-squared from regressing $x_{j}$ on all the other independent variables
+
+#### Estimating $\sigma^2$ to estimate OLS Variance
+**Goal**:
+We need an unbiased estimator of $\sigma^2$ to obtain un biased estimator of $\mathrm{Var}(\hat{\beta}_{j}) = \frac{\sigma^{2}}{\mathrm{SST}_{j}\cdot(1-R_{j}^2)}$
+
+**Solution**:
+As for the Simple Linear Regression model, we know that $\sigma^2=\frac{1}{n}\sum_{i=1}^n\hat{u}_{i}^2$ would be a biased estimator $\implies$ we need to account for the degrees of freedom generalizing the estimator that we obtained in the SLR setup for our MLR setup with $k$ independent variables:
+$$
+\hat{\sigma}^{2}= \frac{\sum_{i=1}^{n}\hat{u}_{i}^{2}}{n-k-1}=\frac{\mathrm{SSR}}{n-k-1}
+$$
+
+#### Theorem: Unbiasedness of the OLS Error Variance
+Under Assumptions <mark style="background: #CACFD9A6;">MLR.1</mark> through<mark style="background: #CACFD9A6;"> MLR.5</mark> ([[Gauss-Markov Assumptions]]), given the estimate $\hat{\sigma}^2$ as above, we get:
+$$
+\mathbb{E}(\hat{\sigma}^2)=\sigma^2
+$$
+The **standard error of the regression** (SER) is then defined as $\hat{\sigma}$
+
+#### Estimating the OLS Standard Error
+Once we obtained the SER we can derive an unbiased estimate for the coefficient standard error.
+
+1. Given the OLS standard deviation for the $j$-th coefficient $\hat{\beta}_{j}$:
+$$
+\mathrm{sd}(\hat{\beta}_{j})=\sigma/[\mathrm{SST}_{j}(1-R_{j}^{2})]^{1/2}
+$$
+2. We can derive an estimate of $\mathrm{sd}(\hat{\beta}_{j})$ by introducing the **OLS Standard Error**:
+	- in the *homoscedastic* setup:
+$$
+\mathrm{se}(\hat{\beta}_{j})=\hat{\sigma}/[\mathrm{SST}_{j}(1-R_{j}^{2})]^{1/2}
+$$
+	- in the *heteroscedastic* setup:
+$$
+\mathrm{se}(\hat{\beta}_j)=\frac{\hat{\sigma}}{\sqrt{n}\cdot\mathrm{sd}(x_j) \sqrt{1 - R_j^2}}
+$$
+		where $\mathrm{sd}(x_{j})$ is the **sample standard deviation**:
+$$
+\mathrm{sd}(x_{j})=\sqrt{n^{-1}\sum_{i=1}^{n}(x_{ij}-\overline{x}_{j})^{2}}
+$$
+#### Efficiency of OLS
+According to the Gauss-Markov Theorem, we know that the OLS Estimators are **[[BLUE Estimator]]s**
+(best linear unbiased estimators), when under Assumptions <mark style="background: #CACFD9A6;">MLR.1</mark> through<mark style="background: #CACFD9A6;"> MLR.5</mark>.
+
+#### Minimum Variance Unbiased Estimators
+When we add <mark style="background: #ADCCFFA6;">MRL.6</mark> to the Gauss-Markov Assumptions (getting the [[Classical Linear Model Assumptions]]), we improve the **efficiency** of the **[[BLUE Estimator]]s** estimators $\hat{\beta}_{1},\dots,\hat{\beta}_{k}$ making them not only the best (min. variance) estimator among the all unbiased linear estimators, but the **minimum variance estimators** among **all the possible unbiased estimators** (not strictly the linear ones).
+
+#### Theorem: Normal Sampling Distributions of the OLS Estimators
+Under the [[Classical Linear Model Assumptions]] <mark style="background: #ADCCFFA6;">MLR.1</mark> through <mark style="background: #ADCCFFA6;">MLR.6</mark>, conditional on the sample values of the independent variables, we have that Normality of the error term translates into *normal sampling distributions of the OLS estimators*:
+$$
+\hat{\beta}_j\sim\mathrm{Normal}[\beta_j,\mathrm{Var}(\hat{\beta}_j)]
+$$
+
+#### Implication: Inference after OLS
+
+1. Standardized sampling distribution
+$$
+\frac{\hat{\beta}_j-\beta_j}{\mathrm{sd}(\hat{\beta}_j)}\sim\mathrm{Normal}(0,1)
+$$
+2. Standardized distribution with standard error estimate (r.V.)
+$$
+\frac{\hat{\beta}_{j}-\beta_{j}}{\mathrm{se}(\hat{\beta}_{j})}\sim t_{n-k-1}=t_{df}
+$$
+
+3. We can use the [[T-test]] for testing the **statistical significance** of **individual** independent variables
+4. We can find confidence intervals for the OLS coefficients
+5. We can use the [[F-test]] or the [[Lagrange Multiplier Test]] for testing **joint statistical significance** of **multiple** independent variables
+
+
+

@@ -298,7 +298,7 @@ $$
 According to the Gauss-Markov Theorem, we know that the OLS Estimators are **[[BLUE Estimator]]s**
 (best linear unbiased estimators), when under Assumptions <mark style="background: #CACFD9A6;">MLR.1</mark> through<mark style="background: #CACFD9A6;"> MLR.5</mark>.
 
-## Inference
+## Inference after OLS
 
 **Goal**:
 Perform statistical inference using the full sampling distribution of the OLS Estimates $\hat{\beta}_{j}$.
@@ -347,4 +347,117 @@ $$
 
 3. We can use the [[T-test]] for testing the **statistical significance** of **individual** independent variables
 4. We can find confidence intervals for the OLS coefficients
-5. We can use the [[F-test]] fro testing **joint statistical significance** of **multiple** independent variables
+5. We can use the [[F-test]] or the [[Lagrange Multiplier Test]] for testing **joint statistical significance** of **multiple** independent variables
+
+## Consistency of OLS
+
+**Definition**:
+
+**Interpretation**:
+- Let $\hat{\beta}_j$ be the OLS estimator of $\beta_j$ for some $j$. 
+- For each $n$, $\hat{\beta}_j$ has a probability distribution representing its possible values in different random samples of size $n$.
+- Assumptions MLR.1 through MLR.4 $\implies$ $\hat{\beta}_j$ is unbiased $\implies$ this distribution has mean value $\beta_j$. 
+- If this estimator is consistent 
+	- $\implies$ the distribution of $\hat{\beta}_j$ becomes more and more tightly distributed around $\beta_j$ as the sample size grows
+	- $\implies$ as $n$ tends to infinity, the distribution of $\hat{\beta}_j$ collapses to the single point $\beta_j$
+	- $\implies$ we can make our estimator arbitrarily close to $\beta_j$ if we can collect an infinite quantity of data
+
+![[Pasted image 20240716175340.png]]
+
+#### Theorem: Consistency of OLS
+Under assumptions <mark style="background: #ADCCFFA6;">MLR.1</mark> - <mark style="background: #ADCCFFA6;">MLR.4</mark>, the OLS estimator $\hat{\beta}_j$ is **consistent** for $\beta_j$, for all $j = 0, 1, \ldots, k$.
+
+>[!tip] MRL.4' vs MRL.4
+>Moreover we can relax the MRL.4 assumption for consistency since the probability limit of the coefficient of a variable in the [[Simple Regression Model]] setup is $$\operatorname{plim}\hat{\beta}_1=\beta_1+\operatorname{Cov}(x_1,u)/\operatorname{Var}(x_1),$$
+>and actually exists if:
+>- $Var(x_{1})<\infty$
+>- $Var(u) < \infty$
+>$\implies$ OLS is consistent in the simple regression case if we **assume only zero correlation**
+>
+>MRL.4' :  $\mathbb{E}(u) = 0$ and $Cov(x_{j},u) = 0$, for $j = 1, 2, ..., k.$
+
+#### Derive the inconsistency of OLS
+
+>[!tip] Parallelism bias-consistency 
+>- Failure of $E(u \mid x_1, \ldots, x_k) = 0$ $\implies$ bias in the OLS estimators,
+>- Correlation between $u$ and any of $x_1, x_2, \ldots, x_k$ $\implies$ all of the OLS estimators to be inconsistent. 
+>
+>Thus if the error is correlated with any of the independent variables $\implies$ OLS is **biased** and **inconsistent** $\implies$ any bias persists as the sample size grows.
+
+- In the simple regression case the inconsistency in $\hat{\beta}_1$ (sometimes loosely called the asymptotic bias) is
+$$
+\text{plim } \hat{\beta}_1 - \beta_1 = \frac{\text{Cov}(x_1, u)}{\text{Var}(x_1)}. \tag{5.4}
+$$
+- Because $\text{Var}(x_1) > 0$, the inconsistency in $\hat{b}_1$:
+	- is positive $\iff$ $x_1$ and $u$ are positively correlated
+	- is negative $\iff$ $x_1$ and $u$ are negatively correlated
+	- can be negligible $\iff$ the covariance between $x_1$ and $u$ is small relative to the variance in $x_1$
+- Problem: we cannot estimate how big $Cov(x,u)$ is because $u$ is unobserved
+- Solution:
+	1. Suppose the true model is $$y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + v,$$
+	2. It satisfies the first four Gauss-Markov assumptions $\implies$ $v$ has a zero mean and is uncorrelated with $x_1$ and $x_2$. 
+	3. If $\hat{\beta}_0$, $\hat{\beta}_1$, and $\hat{\beta}_2$ denote the OLS estimators from the regression of $y$ on $x_1$ and $x_2$, then these estimators are consistent. 
+	4. If we omit $x_2$ from the regression and do the simple regression of $y$ on $x_1$, then $u = \beta_2 x_2 + v$. 
+	5. Let $\tilde{\beta}_1$ denote the simple regression slope estimator. Then
+$$
+\text{plim } \tilde{\beta}_1 = \beta_1 + \beta_2 \delta_1, \tag{5.5}
+$$
+		where
+$$
+\delta_1 = \frac{\text{Cov}(x_1, x_2)}{\text{Var}(x_1)}. \tag{5.6}
+$$
+	6. Cases:
+		1. If $x_1$ and $x_2$ are uncorrelated$\implies$ $\delta_1 = 0$ $\implies$ $\tilde{\beta}_1$ is a consistent estimator of $\beta_1$ (although not necessarily unbiased).
+		2. If $x_2$ has a positive partial effect on $y$, so that $\beta_2 > 0$, and $x_1$ and $x_2$ are positively correlated, so that $\delta_1 > 0$ $\implies$ the inconsistency in $\tilde{\beta}_1$ is positive.
+		3. And so on...
+		4. If the covariance between $x_1$ and $x_2$ is small relative to the variance of $x_1$ $\implies$ inconsistency can be small.
+
+>[!info] Inconsistency vs bias
+>For practical purposes, we can view the inconsistency as being the same as the bias. The difference is that the inconsistency is expressed in terms of the population variance of $x_1$ and the population covariance between $x_1$ and $x_2$, while the bias is based on their sample counterparts (because we condition on the values of $x_1$ and $x_2$ in the sample).
+
+>[!danger] Inconsistency with more data
+>An important point about inconsistency in OLS estimators is that the problem does not go away by adding more observations to the sample. If anything, the problem gets worse with more data!
+
+## Asymptotic Normality of OLS
+
+**Point**:
+1. We know that [[Classical Linear Model Assumptions]] $\implies$ normality of the OLS sampling distributions
+2. Normality under the Gauss-Markov assumptions:
+	- plays no role in the unbiasedness of OLS, 
+	- nor does it affect the conclusion that OLS is the best linear unbiased estimator
+	- but exact inference based on t and F statistics requires <mark style="background: #ADCCFFA6;">MLR.6</mark>.
+3. Even though the $y_{i}$ are not from a normal distribution, we can use the central limit theorem to conclude that the OLS estimators satisfy **asymptotic normality**
+
+#### Theorem: Asymptotic Normality of OLS
+Under the Gauss-Markov Assumptions <mark style="background: #ADCCFFA6;">MLR.1</mark> through <mark style="background: #ADCCFFA6;">MLR.5</mark>, we have that:
+1. $\hat{\beta}_j$ is asymptotically normally distributed, since:
+	- the normal distribution $$ \sqrt{n}(\hat{\beta}_j - \beta_j) \xrightarrow{a} \text{Normal}(0, \sigma^2 / a_j^2),$$
+	- $\sigma^2 / a_j^2 > 0$ $\rightarrow$ the asymptotic variance of $\sqrt{n}(\hat{\beta}_j - \beta_j)$. 
+	- for the slope coefficients $$a_j^2 = \text{plim} \left( \frac{1}{n} \sum_{i=1}^n \hat{r}_{ij}^2 \right),$$
+	-  $\hat{r}_{ij}$ $\rightarrow$ residuals from regressing $x_j$ on the other independent variables. 
+
+2. $\hat{\sigma}^2$ is a consistent estimator of $\sigma^2 = \text{Var}(u)$.
+3. For each $j$,
+
+$$
+\begin{cases}
+\frac{\hat{\beta}_j - \beta_j}{\text{sd}(\hat{\beta}_j)} \xrightarrow{a} \text{Normal}(0, 1) \\ \\
+\frac{\hat{\beta}_j - \beta_j}{\text{se}(\hat{\beta}_j)} \xrightarrow{a} \text{Normal}(0, 1)
+\end{cases}
+$$
+
+	where $\text{se}(\hat{\beta}_j)$ is the usual OLS standard error
+
+**Interpretation**:
+Regardless of the population distribution of u, the OLS estimators, when properly standardized, have approximate standard normal distributions.
+
+>[!warning] 
+>1. If the sample size is not very large, then the t distribution can be a poor approximation to the distribution of the t statistics when u is not normally distributed
+>2. The quality of the approximation depends not just on $n$, but on the $df= n - k - 1$ $\implies$ with more independent variables in the model, a larger sample size is usually needed to use the t approximation.
+>3. The above theorem does require the homoskedasticity assumption $\implies$ otherwise usual t statistics and confidence intervals are invalid no matter how large the sample size is
+>4. The asymptotic standard error is: $$\begin{cases}
+\mathrm{se}(\hat{\beta}_j)\approx c_j/\sqrt{n}\\ \\
+c_j=\frac\sigma{\sigma_j\sqrt{1-\rho_j^2}}
+\end{cases}$$ 
+
+
