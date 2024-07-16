@@ -86,5 +86,5 @@ $$
 ## Testing for heteroskedasticity
 
 Possible tests:
-- [[BP-test]]
+- [[Breusch-Pagan test]]
 - [[White test]]

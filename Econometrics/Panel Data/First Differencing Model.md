@@ -80,7 +80,7 @@ We do not need $u_{it}$ to be serially uncorrelated but to follow a random walk 
 >5. We know that $\hat{\rho}$ is consistent estimator of $\rho$
 >6. We use the t test to test the first-order autocorrelation (AR(1)) of residuals
 $$H_{0}: \rho=0$$
->7. We can correct for the presence of **AR(1) serial correlation** in $r_{it}$ by using [[Feasible GLS]] (Prais-Winsten transformation for time series ?)
+>7. We can correct for the presence of **AR(1) serial correlation** in $r_{it}$ by using [[Feasible Generalized Least Squares]] (Prais-Winsten transformation for time series ?)
 
 >[!tip] Chow Test
 >We might be interested in using [[Chow Test]]  as in the Pooled OLS setup in order to test whether **slope coefficients have changed over time** (by interacting the explanatory variables of interest with time-period dummy variables).
