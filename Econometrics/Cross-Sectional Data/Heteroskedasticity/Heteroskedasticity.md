@@ -1,8 +1,8 @@
 
 - **Homoskedasticity assumption**:
-  - the variance of the unobserved error, u, *conditional on the explanatory variables*, is **constant**, i.e. given the [[Multiple Regression Model]] $y=\beta_0+\beta_1x_1+\beta_2x_2+...+\beta_kx_k+u$ we have that:
+  - the variance of the unobserved error, $u$, *conditional on the explanatory variables*, is **constant**, i.e. given the [[Multiple Regression Model]] $y=\beta_0+\beta_1x_1+\beta_2x_2+...+\beta_kx_k+u$  we have that:
 $$
-Var(u|x_{1},\dots,xk)=\sigma^2
+Var(u|x_{1},\dots,x_k)=\sigma^2
 $$
   - it is needed (<mark style="background: #ADCCFFA6;">MRL.5</mark> in [[Gauss-Markov Assumptions]] and [[Classical Linear Model Assumptions]]) to justify the usual [[T-test]]s, [[F-test]]s, and confidence intervals for OLS estimation of the linear regression model, even with large sample sizes
   - it plays no role in showing whether OLS was unbiased or consistent
@@ -11,7 +11,7 @@ $$
 - **Heteroskedasticity**:
   - the variance of the unobserved factors changes across different segments of the population, where the segments are determined by the different values of the explanatory variables
   - the main **problems** 
-    $\implies$ $Var(\hat{\beta}_{j})$ are biased without the homoskedasticity assumption
+    $\implies$ $Var(\hat{\beta}_{j})$ are **biased** without the homoskedasticity assumption
 	$\implies$ no longer valid for constructing confidence intervals and t statistics
 	$\implies$ OLS no longer [[BLUE Estimator]]
 
@@ -38,7 +38,7 @@ We need a way to estimate the above variance when $\sigma_{i}\neq\sigma$ (otherw
 1. $\hat{u}_{i}$ $\rightarrow$ the OLS residuals from the initial regression of $y$ on $x$
 2. a valid estimator of the variance would be:
 $$
-\widehat{\mathrm{Var}}\left(\widehat{\beta}_{j}\right)==\frac{\sum_{i=1}^n(x_i-\bar{x})^2\hat{u}_i^2}{\mathrm{SST}_x^2}
+\widehat{\mathrm{Var}}\left(\widehat{\beta}_{j}\right)=\frac{\sum_{i=1}^n(x_i-\bar{x})^2\hat{u}_i^2}{\mathrm{SST}_x^2}
 $$
 
 #### Case 2: Multiple Regression
@@ -50,7 +50,7 @@ $$
 \widehat{\mathrm{Var}}\left(\widehat{\beta}_{j}\right)=\frac{\sum_{i=1}^{n}\hat{r}_{ij}^{2}\hat{u}_{i}^{2}}{\mathrm{SSR}_{j}^{2}}
 $$
 3. where:
-	1. $\hat{r}_{ij}$ $\rightarrow$  the ith residual from regressing $x_{j}$ on all other independent variables
+	1. $\hat{r}_{ij}$ $\rightarrow$  the $i$-th residual from regressing $x_{j}$ on all other independent variables
 	2. $SSR_{j}$ $\rightarrow$ sum of squared residuals from this regression
 4. square root of the quantity this estimated variance is called the **heteroskedasticity-robust standard error** for $\hat{\beta}_{j}$
 
@@ -68,20 +68,29 @@ $$
 >Empirically robust standard errors are often found to be larger than the usual standard errors.
 
 >[!tip] Why to prefer OLS with usual standard error
->- If the homoskedasticity assumption holds + errors are normally distributed $\implies$ usual t statistics have exact t distributions, (regardless of the sample size). 
+>- If the homoskedasticity assumption holds + errors are normally distributed (MLR.4, MLR.5) $\implies$ usual t statistics have exact t distributions, (regardless of the sample size). 
 >- The robust standard errors and robust t statistics are justified only as the sample size becomes large, even if [[Classical Linear Model Assumptions]] are true.
 
-## Main inference implications of heteroskedastic-robust se
+## Main inference implications of heteroskedastic-robust standard errors
 
-1. it is possible to consequently obtain a **heteroskedasticity-robust t statistic** by using the heteroskedasticity-robust standard error in the formula $$t=\frac{\text{estimate}-\text{hypothesized value}}{\text{standard error}}$$
-2. Heteroskedasticity $\implies$ usual sum-of-squared residuals form of the F statistic is not valid $\implies$ compute the [[Chow Test]]
-3. For a **heteroskedasticity-robust LM statistic**:
+1. **Robust [[T-test]]**: 
+   it is possible to consequently obtain a **heteroskedasticity-robust t statistic** by using the heteroskedasticity-robust standard error in the formula $$t=\frac{\text{estimate}-\text{hypothesized value}}{\text{standard error}}$$
+2. **Robust [[F-test]]**: 
+   heteroskedasticity $\implies$ usual sum-of-squared residuals form of the F statistic is not valid $\implies$ compute the [[Chow Test]]
+3. **Robust [[Lagrange Multiplier Test]]**: 
+   for a **heteroskedasticity-robust LM statistic**:
 	1. obtain the residuals $\tilde{u}$ from the restricted model 
 	2. regress each of the independent variables excluded under the null on all of the included independent variables to get the residuals $\tilde{r}_{1}\dots \tilde{r}_{q}$ ($q$: number of excluded variables)
 	3. find the product between each $\tilde{r}_{j}$ and $\tilde{u}$
 	4. run the regression of 1 on $\tilde{r}_{1} \tilde{u},\,\tilde{r}_{2} \tilde{u},\, \tilde{r}_{q} \tilde{u}$ **without an intercept**
 	5. The robust LM statistic turns out to be $n-SSR_{1}$ where $SSR_{1}$ is the usual sum of squared residuals from this final regression
 	6. Under $H_{0}$, LM is distributed approximately as $\chi_{q}^2$
+
+>[!tip] Alternative to the use of heteroskedastic-robust standard errors
+>Another way of getting reliable statistics is to directly correct the regression model instead of correcting the standard errors. Examples of these transformed models are:
+>- [[Weighted Least Squares]]
+>- [[Feasible Generalized Least Squares]]
+
 
 ## Testing for heteroskedasticity
 

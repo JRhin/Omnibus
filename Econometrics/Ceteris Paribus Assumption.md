@@ -1,4 +1,4 @@
-The notion of ceteris paribus plays an important role in causal analysis, and consists in considering all the other (relevant) factors fixed/constant when focus on a particular variable, during a step of our analysis.
+The notion of ceteris paribus plays an important role in causal analysis, and consists in considering all the other (relevant) factors fixed/constant when focusing on a particular variable, during a step of our analysis.
 
 >[!tip] Example
 >In analyzing consumer demand, we are interested in knowing the effect of changing the price of a good on its quantity demanded, while holding all other factors — such as income, prices of other goods, and individual tastes — **fixed**. 

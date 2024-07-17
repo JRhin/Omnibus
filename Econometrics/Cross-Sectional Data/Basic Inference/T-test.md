@@ -80,8 +80,8 @@ $$
 2. Evaluate the result:
 	- small p-values $\implies$ evidence against the null; 
 	- large p-values $\implies$ little evidence against $H_{}0$.
-3. In practice, if $\alpha$ denotes the significance level of the test, then H0:
-	- is rejected if p-value  a; 
+3. In practice, if $\alpha$ denotes the significance level of the test, then $H_0$:
+	- is rejected if p-value  $< \alpha$; 
 	- otherwise, H0 is not rejected at the $100\cdot\alpha$% level.
 
 >[!tip] Remember from hypothesis testing theory:

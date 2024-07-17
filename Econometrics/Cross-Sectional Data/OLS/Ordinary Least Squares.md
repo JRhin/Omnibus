@@ -9,24 +9,24 @@ $$
 - We can estimate $\beta_{0}$ and $\beta_{1}$ finding $\hat{\beta}_{0}$ and $\hat{\beta}_{1}$.
 
 **Procedure for $\hat{\beta}_{0}$**:
-1. Use the above assumptions to get:
+1. Use the <mark style="background: #ADCCFFA6;">SRL.1</mark> - <mark style="background: #ADCCFFA6;">SRL.4</mark> assumptions to get:
 
 $$
 \begin{cases}
-\mathbb{E}[u] = \mathbb{E}[y- \beta_{0} + \beta_{1}] = 0 \\ \\
-Cov(x,u) = \mathbb{E}[xu] = \mathbb{E}[x(y- \beta_{0} + \beta_{1})] = 0
+\mathbb{E}[u] = \mathbb{E}[y- \beta_{0} - \beta_{1}x] = 0 \\ \\
+Cov(x,u) = \mathbb{E}[xu] = \mathbb{E}[x(y- \beta_{0} - \beta_{1}x)] = 0
 \end{cases}
 $$
 2. Now consider the equations in the "random sample" setup getting the <mark style="background: #D2B3FFA6;">First order conditions</mark> for the OLS estimates:
 $$
 \begin{cases}
-a) \space\space\space n^{-1} \sum_{i=0}^n (y_{i} + \hat{\beta}_{0} + \hat{\beta}_{1}x) = 0\\ \\
-b) \space\space\space n^{-1} \sum_{i=0}^{n} x_{i} (y_{i} + \hat{\beta}_{0} + \hat{\beta}_{1}x) = 0
+a) \space\space\space n^{-1} \sum_{i=0}^n (y_{i} - \hat{\beta}_{0} - \hat{\beta}_{1}x_{i}) = 0\\ \\
+b) \space\space\space n^{-1} \sum_{i=0}^{n} x_{i} (y_{i} - \hat{\beta}_{0} - \hat{\beta}_{1}x_{i}) = 0
 \end{cases} 
 $$
 3. We can get the *OLS estimate of the intercept* $\hat{\beta}_{0}$ and the *OLS estimate of the slope* $\hat{\beta}_{1}$:
 $$
-a) \space\space\space \implies \bar{y} = \hat{\beta}_{0} +\hat{\beta}_{1}\bar{x} \implies \hat{\beta}_{0} = \bar{y} - \hat{\beta}_{1}\hat{x}
+a) \space\space\space \implies \bar{y} = \hat{\beta}_{0} +\hat{\beta}_{1}\bar{x} \implies \hat{\beta}_{0} = \bar{y} - \hat{\beta}_{1}\bar{x}
 $$
 
 **Procedure for $\hat{\beta}_{1}$**:
@@ -50,7 +50,7 @@ $$
 **Summing-up**:
 the OLS estimates for our parameters are:
 $$
-\hat{\beta}_{0} = \bar{y} - \hat{\beta}_{1}\hat{x}
+\hat{\beta}_{0} = \bar{y} - \hat{\beta}_{1}\bar{x}
 $$
 $$
 \hat{\beta}_1=\frac{\sum_{i=1}^n\left(x_i-\bar{x}\right)\left(y_i-\bar{y}\right)}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}.
@@ -210,7 +210,7 @@ where:
 
 ## Properties of the OLS Estimators
 
-#### Theorem: Unbiasedness of Sampling [[Expected Values of OLS Estimators]]
+#### Theorem: Unbiasedness of Sampling Expected Values of OLS Estimators
 Under Assumptions <mark style="background: #ADCCFFA6;">MLR.1</mark> through <mark style="background: #ADCCFFA6;">MLR.4</mark> we have:
 $$
 \mathbb{E}(\hat{\beta}_{j})=\beta_{j} \quad ,j=0,1,\ldots,k

@@ -6,7 +6,7 @@ It a rule that can be applied to any sample of data to produce an estimate of a 
 #### Unbiased
 An estimator such that its mean is exactly equal to the statistic it want to estimate, i.e.:
 $$
-\mathbb{E}(\tilde{\beta}_{j}=\beta_{j})
+\mathbb{E}(\tilde{\beta}_{j})=\beta_{j}
 $$
 
 #### Linear
@@ -16,7 +16,7 @@ $$
 $$
 
 #### Best
-According to the Gauss-Markov Theorem, the best estimator is the estimator with *smallest variance* among all the estimators that are linear and unbiased.
+According to the Gauss-Markov Theorem, the best estimator is the estimator with *smallest variance* among all the estimators that are **linear** and **unbiased**.
 
 ### Gauss-Markov Theorem
 

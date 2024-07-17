@@ -1,7 +1,7 @@
-It is another method for estimating unobserved effects panel data models, at least as common as [[First Differencing Model]]
+It is another method for estimating unobserved effects with panel data models, at least as common as [[First Differencing Model]]
 
 **Idea**:
-We basically think the unobserved effect is uncorrelated with all the explanatory variables:
+We basically think the **unobserved effect is uncorrelated with all the explanatory variables**:
 we believe that any leftover neglected heterogeneity only induces serial correlation in the composite error term, but it does not cause correlation between the composite errors and the explanatory variables.
 So we try to generalize the approach assumed for [[Average Differencing Fixed Effect Model]] by using the above assumption to avoid the elimination of the **unobserved fixed effect term**.
 
@@ -34,7 +34,7 @@ $$
 $$
 \theta=1-[\sigma_u^2/(\sigma_u^2+T\sigma_a^2)]^{1/2}
 $$
-5. Then we apply the GLS transformation for the equation:
+5. Then we apply the following particular case of **Generalized Least Squares** transformation for the equation:
 $$
 y_{it}-\theta\bar{y}_{i}=\beta_{0}(1 - \theta) + \beta_{1}(x_{it1} - \theta\bar{x}_{i1}) +\dots+ \beta_{k}(x_{itk}-\theta\bar{x}_{ik}) + (\nu_{it}-\theta\bar{\nu}_{i})
 $$
@@ -45,10 +45,10 @@ $$
 >	- $\sigma_{u}^{2}$
 >	- $\sigma_a^2$
 >	- the number of time periods $T$
->2. The transformation in (14.11) allows for explanatory variables that are constant over time (one advantage of RE)
+>2. The GLS transformation *allows for explanatory variables that are constant over time* (one advantage of RE)
 
 >[!tip] FGLS for $\theta$
->The **Feasible GLS estimator** that uses $\hat{\theta}$ for estimating $\theta$ is called the **random effects estimator**.
+>The **[[Feasible Generalized Least Squares]] estimator** that uses $\hat{\theta}$ for estimating $\theta$ is called the **random effects estimator**.
 
 #### RE as a generalization of both Pooled OLS and FE
 
@@ -69,16 +69,23 @@ effects:
 
 ## RE Assumptions
 
-The ideal random effects assumptions include <mark style="background: #ADCCFFA6;">FE.1</mark>, <mark style="background: #ADCCFFA6;">FE.2</mark>, <mark style="background: #ADCCFFA6;">FE.4</mark>, <mark style="background: #ADCCFFA6;">FE.5</mark>, and <mark style="background: #ADCCFFA6;">FE.6</mark>. (FE.7 could be added but it gains us little in practice because we have to estimate $\theta$.) Because we are only subtracting a fraction of the time averages, we can now allow time-constant explanatory variables. So, <mark style="background: #ADCCFFA6;">FE.3</mark> is replaced with 3 additional assumptions:
+The ideal random effects assumptions include <mark style="background: #ADCCFFA6;">FE.1</mark>, <mark style="background: #ADCCFFA6;">FE.2</mark>, <mark style="background: #ADCCFFA6;">FE.4</mark>, <mark style="background: #ADCCFFA6;">FE.5</mark>, and <mark style="background: #ADCCFFA6;">FE.6</mark>. (FE.7 could be added but it gains us little in practice because we have to estimate $\theta$.) Because we are only subtracting a fraction of the time averages, we can now allow time-constant explanatory variables. So:
+- <mark style="background: #ADCCFFA6;">FE.3</mark> is replaced with <mark style="background: #ADCCFFA6;">RE.1</mark> 
+- <mark style="background: #ADCCFFA6;">FE.4</mark> is extended and replaced with <mark style="background: #ADCCFFA6;">RE.4</mark>
+- <mark style="background: #ADCCFFA6;">FE.5</mark> is extended by <mark style="background: #ADCCFFA6;">RE.5</mark>
 
-1. **No Perfect Collinearity Assumption** <mark style="background: #ADCCFFA6;">RE.1</mark>: There are no perfect linear relationships among the explanatory variables. The cost of allowing time-constant regressors is that we must add assumptions about how the unobserved effect, $a_i$, is related to the explanatory variables.
+1. **No Perfect Collinearity Assumption** <mark style="background: #ADCCFFA6;">RE.1</mark>: There are no perfect linear relationships among the explanatory variables. 
 
-2. **Fixed Effect Mean Assumption** <mark style="background: #ADCCFFA6;">RE.2</mark>: In addition to <mark style="background: #ADCCFFA6;">FE.4</mark>, the expected value of $a_i$ given all explanatory variables is constant: 
+2. **Fixed Effect Mean Assumption** <mark style="background: #ADCCFFA6;">RE.2</mark>: The cost of allowing time-constant regressors is that we must add assumptions about how the unobserved effect, $a_i$, is related to the explanatory variables $\implies$ in addition to <mark style="background: #ADCCFFA6;">FE.4</mark>, the expected value of $a_i$ given all explanatory variables is constant: 
 $$
 E(a_i \mid X_i) = \beta_0.
 $$
 >[!tip] RE.4 $\implies$ Unobserved Effect Correlation
->This is the assumption that rules out correlation between the unobserved effect and the explanatory variables, and it is the key distinction between fixed effects and random effects. Because we are assuming $a_i$ is uncorrelated with all elements of $x_{it}$, we can include time-constant explanatory variables. (Technically, the quasi-time-demeaning only removes a fraction of the time average, and not the whole time average.) We allow for a nonzero expectation for $a_i$ in stating Assumption RE.4 so that the model under the random effects assumptions contains an intercept, $\beta_0$, as in equation (14.7). Remember, we would typically include a set of time-period intercepts, too, with the first year acting as the base year.
+>- This is the assumption that rules out correlation between the unobserved effect and the explanatory variables
+>- It is the key distinction between fixed effects and random effects. 
+>- Because we are assuming $a_i$ is uncorrelated with all elements of $x_{it}$, we can include time-constant explanatory variables. (Technically, the quasi-time-demeaning only removes a fraction of the time average, and not the whole time average.) 
+>- We allow for a nonzero expectation for $a_i$ in stating Assumption RE.4 so that the model under the random effects assumptions contains an intercept, $\beta_0$.
+>- Remember, we would typically include a set of time-period intercepts, too, with the first year acting as the base year.
 
 We also need to impose homoskedasticity on $a_i$ as follows:
 
@@ -96,3 +103,8 @@ $$
 
 ## RE vs FE
 
+1. fixed effects allows arbitrary correlation between $a_{i}$ and $x_{itj}$ $\implies$ FE more convincing for estimating **ceteris paribus effects**
+2. If the key exploratory variable is constant over time $\implies$ we cannot estimate its effect on $y$ with FE
+3. If one uses RE $\implies$ as many time-constant controls as possible are included among the explanatory variables (with FE not necessary to include such controls).
+4. RE more efficient than Pooled OLS
+5. It is common to apply both random effects and fixed effects, and then formally test for statistically significant differences in the coefficients on the time-varying explanatory variables with the [[Hausman Test]]

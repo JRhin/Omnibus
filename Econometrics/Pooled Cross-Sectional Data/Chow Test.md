@@ -12,5 +12,5 @@
 
 >[!tip] Chow test for multiple periods of time
 >We can test the constancy of slope coefficients generally by:
->1. interacting all of the time-period dummies (except that defining the base group) with one, several, or all of the explanatory variables
+>1. interacting all of the time-period dummies (except that one defining the base group) with one, several, or all of the explanatory variables
 >2. test the joint significance of the interaction terms

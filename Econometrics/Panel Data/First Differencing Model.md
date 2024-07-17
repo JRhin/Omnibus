@@ -25,13 +25,13 @@ $$
 3. Notice how the Fixed Effect Term just disappeared from our equation
 
 >[!tip] Assumptions to apply OLS to the First Differencing equation
->1. **Strict Exogeneity** $\implies$ $\Delta u_{i}$ uncorrelated with $\Delta x_{i}$ $\iff$ **idiosyncratic error** from original equation $u_{it}$ is uncorrelated with $x_{it}$ *in both time periods* 
->2. **Temporal variation** of $\Delta x_{i}$  across $i$ $\implies$ it fails if explanatory variable never changes over time
->3. **Homoskedasticity** is needed (otherwise we have to correct it)
+>1. **Strict Exogeneity** (variation of MLR.4) $\implies$ $\Delta u_{i}$ uncorrelated with $\Delta x_{i}$ $\iff$ **idiosyncratic error** from original equation $u_{it}$ is uncorrelated with $x_{it}$ *in both time periods* 
+>2. **Temporal variation** (sort of MLR.3/SLR.3) of $\Delta x_{i}$  across $i$ $\implies$ it fails if explanatory variable never changes over time
+>3. **Homoskedasticity** (corresponding to MLR.5) *is* needed (otherwise we have to correct it)
 
 >[!danger] Main drawbacks
->1. Panel data sets are harder to collect than a single cross section, especially for individuals (e.g. units such as firms, some will go bankrupt or merge with other firms)
->2. The differencing used to eliminate $a_{i}$ can greatly reduce the variation in the explanatory variables $\implies$ also if $x_{it}$ has substantial variation in the cross section, this might not be true for $\Delta x_{i}$ $\implies$ little variation can lead to large standard errors for $\hat{\beta}_{j}$
+>1. Panel data sets are *harder to collect* than a single cross section, especially for individuals (e.g. units such as firms, some will go bankrupt or merge with other firms)
+>2. The differencing used to eliminate $a_{i}$ can greatly *reduce the variation* in the explanatory variables $\implies$ also if $x_{it}$ has substantial variation in the cross section, this might not be true for $\Delta x_{i}$ $\implies$ little variation can lead to *large standard errors* for $\hat{\beta}_{j}$
 >3. Qualitative information contained in dummy variables could be problematic since in that case we end-up with always $\Delta x_{i}=0$
 
 >[!note] Suggestions
@@ -64,7 +64,7 @@ $$
 - When $T=2$ we have as correct assumption that $\operatorname{Cov}\left(x_{i t j}, u_{i s}\right)=0, \quad \text { for all } t, s, \text { and } j$ 
   This assumption is generally violated if we have omitted an important time-varying variable.
 - When $T>2$ the above assumption is not enough since we need that $\Delta u_{it}$ are **uncorrelated over time** (serially uncorrelated)
-- 
+
 **Solution**:
 We do not need $u_{it}$ to be serially uncorrelated but to follow a random walk since:
 - if $u_{it}$ serially uncorrelated $\implies$ $Cor(\Delta u_{it},u_{i(t+1)})=-0.5$
@@ -73,12 +73,12 @@ We do not need $u_{it}$ to be serially uncorrelated but to follow a random walk 
 >[!tip] Testing Serial Correlation of the errors
 >1. Goal: to test serial correlation in the first-differenced equation
 >2. Let's denote the **first difference of the error** as:
->$$r_{it}=\Delta u_{it}>$$
+>$$r_{it}=\Delta u_{it}$$
 >3. Estimate the fist differencing equation to obtain the residuals $\hat{r}_{it}$
 >4. Run a simple pooled OLS on adjacent residuals to evaluate the OLS coefficient $\hat{\rho}$, i.e.:
 >$$\hat{r}_{it}=\rho \cdot \hat{r}_{i(t-1)} + e_{it}, \quad t=3,\dots,T, \; i=1,\dots,N>$$
 >5. We know that $\hat{\rho}$ is consistent estimator of $\rho$
->6. We use the t test to test the first-order autocorrelation (AR(1)) of residuals
+>6. We use the [[T-test]] to test the **first-order autocorrelation** (AR(1)) of residuals
 $$H_{0}: \rho=0$$
 >7. We can correct for the presence of **AR(1) serial correlation** in $r_{it}$ by using [[Feasible Generalized Least Squares]] (Prais-Winsten transformation for time series ?)
 
@@ -89,7 +89,6 @@ $$H_{0}: \rho=0$$
 
 >[!danger] First Differencing Main Issues
 >1. When the key explanatory variables do not vary much over time
->2. When we do have sufficient time variation in the $x_{itj}$ observations FD estimation can be subject to serious biases
->3. Having more time periods generally does not reduce the inconsistency in the FD estimator when the regressors are not **strictly exogenous**
->4. The FD estimator is that it can be worse than pooled OLS if one or more of the explanatory variables is subject to measurement error (*nan* values). Differencing a poorly measured regressor reduces its variation relative to its correlation with the differenced error caused by classical measurement error.
-
+>2. When we do not have sufficient time variation in the $x_{itj}$ observations FD estimation can be subject to serious biases
+>3. Having more time periods generally does not reduce the inconsistency in the FD estimator when the regressors are **not strictly exogenous**
+>4. The FD estimator can be worse than pooled OLS if one or more of the explanatory variables is subject to measurement error (*nan* values). Differencing a poorly measured regressor reduces its variation relative to its correlation with the differenced error caused by classical measurement error.

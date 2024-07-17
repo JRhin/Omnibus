@@ -30,24 +30,22 @@ states that the $q$  variables have zero coefficients: $$\mathrm{H}_{0}\colon\be
 ![[Pasted image 20240716170401.png]]
 
 >[!tip] F distribution
->It can be shown that:
->-under $H_{0}$
->- under [[Classical Linear Model Assumptions]]
+>It can be shown that under [[Classical Linear Model Assumptions]]
 >  
 >  $\implies$ $F \sim F_{q,n-k-1}$
 
->[!info]
->It can be shown that $F$ is actually the ratio of two independent chi-square random variables, divided by their respective degrees of freedom.
+>[!info] The F statistic as a ratio of chi-square r.V.s
+>It can be shown that $F$ is actually the *ratio of two independent chi-square random variables, divided by their respective degrees of freedom*.
 
-#### Particular case 1: Variable are jointly significant but not individually
+#### Particular case 1: Variables are jointly significant but not individually
 - This is general due to the fact that there is [[Multicollinearity]] among the tested variables
 - The F statistic is less sensitive to multicollinearity
 - For this reason the F statistic is often useful for testing exclusion of a group of variables when the variables in the group are highly correlated.
 
 #### Particular case 2: One variable has a significant t statistic but the group of variables is jointly insignificant
 - The F statistic is intended to detect whether a set of coefficients is different from zero, but it is never the best test for determining whether a single coefficient is different from zero
-- The fact that we can sometimes hide a statistically significant variable along with some insignificant variables could lead to abuse if regression results are not carefully reported
-- Often, when a variable is very statistically significant and it is tested jointly with another set of variables, the **set will be jointly significant**.
+- The fact that we can sometimes is possible to have an hidden statistically-significant variable along with some insignificant variables
+- Often, when a variable is very statistically significant and it is tested jointly with another set of variables, the **set will also be jointly significant**.
 
 #### Particular case 3: F Statistic for Overall Significance of a Regression
 - The $H_{0}$ this time states that **none of the explanatory variables has an effect** on $y$: $$\mathrm{H}_0\colon\beta_1=\beta_2=...=\beta_k=0$$

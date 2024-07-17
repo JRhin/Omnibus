@@ -13,9 +13,4 @@ $$
 2. Use the properties of the covariance operator: $$Cov(z,y)=\beta_{1}Cov(z,x) + Cov(z,u)$$
 3. By the **Instrument Exogeneity** condition $Cov(z,u)=0$, thus: $$\beta_{1}=\frac{Cov(z,y)}{Cov(z,x)}$$
 4. Estimate the 2 above covariances by their sample analog
-5. We finally get the so-called **Instrumental Variables Estimator**: $$\begin{align}
-\hat{\beta}_{1}&=\frac{\sum_{i=1}^n(z_{i}-\bar{z})(y_{i}-\bar{y})}{\sum_{i=1}^n(z_{i}-\bar{z})(x_{i}-\bar{x})} \\ \\
-
-\hat{\beta}_{0}&=\bar{y}-\hat{\beta}_{1}\bar{x}
-
-\end{align}$$
+5. We finally get the so-called **[[Instrumental Variables]] Estimators**: $$\begin{align}\hat{\beta}_{1}&=\frac{\sum_{i=1}^n(z_{i}-\bar{z})(y_{i}-\bar{y})}{\sum_{i=1}^n(z_{i}-\bar{z})(x_{i}-\bar{x})} \\ \\ \hat{\beta}_{0}&=\bar{y}-\hat{\beta}_{1}\bar{x} \end{align}$$

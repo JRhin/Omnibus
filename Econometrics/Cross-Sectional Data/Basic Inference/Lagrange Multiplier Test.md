@@ -14,6 +14,5 @@
 3. Compute the **LM statistic**: $$LM = nR_{u}^2 \sim \chi_{q}^2 $$
 4. Evaluate the p-value
 
->[!warning]
+>[!warning] Degrees of freedom
 >The df in the unrestricted model plays no role because of the asymptotic nature of the LM statistic!
-

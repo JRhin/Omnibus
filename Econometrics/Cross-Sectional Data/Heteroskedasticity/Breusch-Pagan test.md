@@ -3,7 +3,7 @@
 3. Obtain the squared OLS residuals (one for each observation) as error estimates from the original MRL.
    **Idea**: We can recast the above assumption by writing the error as linear combination of the indep. variables and then testing if all the coefficients are zero, i.e.: 
    - given $$u^2=\delta_0+\delta_1x_1+\delta_2x_2+...+\delta_kx_k+\nu $$
-   - recasted test $$\mathrm H_0\colon\delta_1=\delta_2=...=\delta_k=0$$
+   - casted test $$\mathrm H_0\colon\delta_1=\delta_2=...=\delta_k=0$$
 4.  Run the regression of the OLS residuals on the indep. variables
 5. Keep the R-squared from this regression, $R_{\hat{u}^2}^2$.
 6. Form either the F statistic or the LM statistic and compute the p-value:

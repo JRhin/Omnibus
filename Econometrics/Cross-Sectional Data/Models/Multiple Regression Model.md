@@ -3,9 +3,9 @@ We add more independent variables $x_{i}$ to extend our [[Simple Regression Mode
 
 #### Why?
 Here we list some of the main reasons to include other independent variables:
-1. **Multiple regression analysis** is more amenable to *ceteris paribus* analysis since it allow to explicitly control for many factors that affect $y$ (that in the **simple regression** setup would be incorporated in the error term $\implies$ impossible to apply the ceteris paribus fixing those terms);
-2. Adding more factors useful for explaining y $\implies$ *explaining more variation* in y explained;
-3. Controlling for more variables potentially correlated with other independent variable $\implies$ extrapolating this correlation from the error term (which otherwise would be correlated with some $x$, causing the OLS estimators to be biased);
+1. **Multiple regression analysis** is more amenable to *ceteris paribus* analysis since it allows to explicitly control for many factors that affect $y$ (that in the **simple regression** setup would be incorporated in the error term $\implies$ impossible to apply the ceteris paribus fixing those terms);
+2. Adding more factors useful for explaining $y$ $\implies$ *explaining more variation* in $y$;
+3. Controlling for more variables potentially correlated with other independent variable $\implies$ *extrapolating this correlation from the error term* (which otherwise would be correlated with some $x$, causing the OLS estimators to be biased);
 4. Multiple regression analysis can incorporate more general *functional form* relationships, i.e. is way *more flexible*.
 
 #### Setup with 2 variables:
@@ -26,15 +26,16 @@ $$
 > [!notice]
 >  An example about the ability of **MLR** of generalizing functional relationships.
 >  Suppose family consumption (*cons*) is a quadratic function of family income (*inc*):
->  $$ cons=\beta_0+\beta_1inc+\beta_2inc^2+u
-$$
+>  $$ cons=\beta_0+\beta_1inc+\beta_2inc^2+u$$
+
 ###### Possible more complex interpretations
 There is an important difference with simple regression in the parameters interpretation.
-For instance, if we look at the example above in the blue box, Instead, the change in consumption with respect to the change in income is approximated by:
+For instance, if we look at the example above in the blue box, the change in consumption with respect to the change in income is approximated by:
+
 $$
 \frac{\Delta cons}{\Delta inc}\approx\beta_{1}+2\beta_{2}inc
 $$
-The marginal effect of income on consumption depends on both $\beta_{1}$ and $\beta_{2}$!!!
+The marginal effect of income on consumption depends on both $\beta_{1}$ and $\beta_{2}$ (see [[Quadratic form]] notes for more details)!!!
 
 #### General Setup:
 
@@ -51,18 +52,18 @@ $$
 > $$ \mathrm{E}(u|x_{1},x_{2},\ldots,x_{k})=0$$
 > as always this requires:
 > - the unobserved error term be uncorrelated with the explanatory variables
-> - we have correctly accounted for the functional relationships between the explained and explanatory variables.
+> - we have correctly accounted for the functional relationships between the explained and explanatory variables (i.e. no relation misspecification).
 
 >[!note] Notational abuse
->In MRL setup we just introduces $k$ independent variable $x_{1},\dots, x_{k}$.  Do not confuse such variables with the observations (samples) for the single independent variable $x$ in the SRL setup (we used the same notation). From now on we will denote by
+>In MLR setup we just introduce $k$ independent variable $x_{1},\dots, x_{k}$.  Do not confuse such variables with the observations (samples) for the single independent variable $x$ in the SRL setup (we used the same notation). From now on we will denote by
 >- $x_{j}$ $\to$ the $j$-th independent random variable
 >- $x_{ij}$ $\to$ the $i$-th observation for the $j$-th independent variable in the random sample setup.
 
->[!warning] Irreducibility of the errror
+>[!warning] Irreducibility of the error
 >No matter how many explanatory variables we include in our model, there will always be factors we cannot include, and these are collectively contained in $u$
 
 >[!warning]
-> The power of MRL is that it provides this ceteris paribus interpretation even though the data have not been collected in a ceteris paribus fashion.
+> The power of MLR is that it provides this ceteris paribus interpretation even though the data have not been collected in a ceteris paribus fashion.
 > In other words it allows us to do in **nonexperimental** environments what natural scientists are able to do in a controlled laboratory setting: keep other factors fixed!
 ## Ordinary Least Squares Estimates
 
@@ -76,8 +77,8 @@ $$
 $$
 
 **Results**:
-1. There is no direct need to directly solve the First order conditions to find the OLS Estimators, but we can get a closed-form for the coefficient OLS Estimates
-2. First we define the **auxiliary residual** for the $j$-th variable $\hat{r}_{ij}$ that is the estimated residual from the regression of $x_{j}$ over all the other variables:
+1. There is no direct need to directly solve the **First order conditions** to find the OLS Estimators, but we can get a closed-form for the coefficient OLS Estimates
+2. First we define the **auxiliary residual** for the $j$-th variable $\hat{r}_{ij}$ that is the estimated residual from the regression of $x_{j}$ over all the other variables, i.e.:
 $$
 \begin{align}
 \hat{x}_{ij} &= \hat{\beta}_0+\hat{\beta}_1x_{i1}+\dots+\hat{\beta}_{j-1}x_{i(j-1)}+\hat{\beta}_{j+1}x_{i(j+1)}+\dots+\hat{\beta}_kx_{ik}\\ \\
@@ -109,15 +110,19 @@ $$
 >3. $Cov(\hat{y}_{i},\hat{u}_{i})=0 \quad \forall i$
 >4. The point $\bar{x}_{1},\dots,\bar{x}_{k}$ is always on the OLS regression line, i.e.: $$\bar{y}=\hat{\beta}_0+\hat{\beta}_1\bar{x}_1+\hat{\beta}_2\bar{x}_2+...+\hat{\beta}_k\bar{x}_k$$
 
->[!tip] MRL coefficients interpretation
->The coefficient on $x_{1}$ measures the change in $\hat{y}$ due to a one-unit increase in $x_{1}$, holding all other independent variables fixed. Thus, we have controlled for the variables $x_2, ..., x_k$ when estimating the effect of $x_{1}$ on $y$, i.e.:
+>[!tip] MLR coefficients interpretation
+>The coefficient on $x_{1}$ measures the change in $\hat{y}$ due to a one-unit increase in $x_{1}$, holding all other independent variables fixed. Thus, we have controlled for the variables $x_2, ..., x_k$ when estimating the effect of $x_{1}$ on $y$ (ceteris paribus as always), i.e.:
 > $$\Delta\hat{y}=\hat{\beta}_1\Delta x_1$$
 
 >[!info] Auxiliary residuals
-> The residuals $\hat{r}_{i1}$ (for $k=2$) are the part of $x_{i1}$ that is uncorrelated with $x_{i2}$.
+> The residuals $\hat{r}_{i1}$ (for $k=2$, i.e. if we only have two indep. variables) are the part of $x_{i1}$ that is uncorrelated with $x_{i2}$.
 > We can also say that  $\hat{r}_{i1}$ is $x_{i1}$ after the effects of $x_{i2}$ have been **partialled-out**.
 
-#### MRL vs SRL
+>[!note]
+>see the [[Ordinary Least Squares]] section for more details on the first-order conditions etc.
+
+
+#### MLR vs SRL
 
 If we consider:
 1.  the **simple regression**: $\tilde{y}=\tilde{\beta}_{0}+\tilde{\beta}_{1}x_{1}$
@@ -128,21 +133,22 @@ $$
 \tilde{\beta}_{1}=\hat{\beta}_{1}+\hat{\beta}_{2}\tilde{\delta}_{1}
 $$
 where:
-- $\tilde{\delta}_{1}$ is the slope coefficient from the simple regression of $x_{i2}$ on $x_{i_{1}}$ for $i=1,\dots,n$
+- $\tilde{\delta}_{1}$ is the slope coefficient from the simple regression of $x_{i2}$ on $x_{i1}$ for $i=1,\dots,n$
 - $\hat{\beta}_{2}\tilde{\delta}_{1}$ is called the **confounding term** since is what differentiates $\tilde{\beta}_{1}$ from $\hat{\beta}_{1}$ 
 
->[!tip] MRL = SRL
+>[!tip] MLR = SRL $\iff$ look at the **confounding term**
 >For the previous example, we have that $\tilde{\beta}_{1}=\hat{\beta}_{1}$ if:
->	1. the partial effect of $x_{2}$ on $\hat{y}$  is $0$ $\to$ $\hat{\beta}_{2}=0$
->	2. $x_{1}$ and $x_2$ are uncorrelated in the sample $\to$ $\tilde{\delta}_{1}=0$
+>1. *either* the partial effect of $x_{2}$ on $\hat{y}$  is $0$ $\implies$ $\hat{\beta}_{2}=0$
+>2. *or* $x_{1}$ and $x_2$ are uncorrelated in the sample $\implies$ $\tilde{\delta}_{1}=0$
 
 ## Goodness-of-fit
 
 We can obtain the same statistics and the same reasoning from the goodness-of-fit section of the [[Simple Regression Model]].
 
 >[!warning]
->Is important to know that $R^2$ never decreases when another independent variable is added to the regression model, because $\mathrm{SSR}$ never increases.
->Thus $R^2$ is not a completely reliable measure of the quality of the model and the factor that should determine whether an explanatory variable belongs in a model is whether it has a nonzero partial effect on $y$ in the population.
+>Is important to know that:
+>- $R^2$ never decreases when another independent variable is added to the regression model, because $\mathrm{SSR}$ never increases.
+>- Thus $R^2$ is not a completely reliable measure of the quality of the model and the factor that should determine whether an explanatory variable belongs to a model is whether it has a **nonzero partial effect** on $y$ in the population.
 
 >[!tip] Low $R^2$
 >Generally, a low R2 $\implies$ it is hard to predict individual outcomes on $y$ with much accuracy.
@@ -151,38 +157,43 @@ We can obtain the same statistics and the same reasoning from the goodness-of-fi
 
 **Multiple Regression assumptions** for unbiasedness of OLS:
 
-1. **Linearity in parameters** <mark style="background: #CACFD9A6;">(MRL.1)</mark> 
+1. **Linearity in parameters** <mark style="background: #CACFD9A6;">(MLR.1)</mark> 
    $y$ is related to $x_{1},\dots,x_{k}$ and $u$ (all *random variables*) as:
 $$
 y=\beta_0+\beta_1x_1+\beta_2x_2+...+\beta_kx_k+u
 $$
-2. **Random Sampling** <mark style="background: #CACFD9A6;">(MRL.2)</mark>
+2. **Random Sampling** <mark style="background: #CACFD9A6;">(MLR.2)</mark>
    considering $n$ random samples $\{(x_i,y_i): i = 1, 2, ..., n\}$ drawn from the above population model, we can write:
 $$
 y_i=\beta_0+\beta_1x_{i1}+\beta_2x_{i2}+...+\beta_kx_{ik}+u_i,\quad i=1,2,...,n
 $$ 
-3. **No Perfect Collinearity** <mark style="background: #CACFD9A6;">(MRL.3)</mark>
-   In the sample none of the independent variables is constant, and there are no exact linear relationships among the independent variables i.e., no independent variable is an exact linear combination of the other independent variables (no **Perfect Collinearity**).
-4. **Zero Conditional Mean** <mark style="background: #CACFD9A6;">(MRL.4)</mark>
+3. **No Perfect Collinearity** <mark style="background: #CACFD9A6;">(MLR.3)</mark>
+   This assumption holds if in the sample:
+   1. none of the independent variables is constant, 
+   2. and there are no exact linear relationships among the independent variables i.e., no independent variable is an exact linear combination of the other independent variables (no **Perfect Collinearity**).
+      
+4. **Zero Conditional Mean** <mark style="background: #CACFD9A6;">(MLR.4)</mark>
     the error $u$ has an expected value of zero given any value of the explanatory variable, i.e. :
-   $$
+$$
 \mathbb{E}(u|x_{1},\dots,x_{k})=0.
 $$
+
 >[!tip] Perfect Collinearity: Positive example
->The example $cons=\beta_{0}+\beta_{1}inc+\beta_{2}inc^{2}+u$ doesn't violate MRL.3 since $inc$ and $inc^2$ are not linearly related.
+>The example $cons=\beta_{0}+\beta_{1}inc+\beta_{2}inc^{2}+u$ doesn't violate MLR.3 since $inc$ and $inc^2$ are not linearly related.
 
 >[!tip] Perfect Collinearity: Negative example
 >It is interesting to see that $\log(cons)=\beta_{0}+\beta_{1}\mathrm{log}(inc)+\beta_{2}\mathrm{log}(inc^{2})+u$ violates the Perfect Collinearity assumption since $\log(inc^2)=2\cdot\log(inc)$.
 
->[!danger] When do MRL.3 fails?
+>[!danger] When do MLR.3 fails?
 >1. when one variable is a constant multiple of another
 >2. when one independent variable can be expressed as an exact linear function of two or more of the other independent variables
 >3. if the sample size is too small in relation to the number of parameters being estimated i.e., $n<k+1$
 >4. if we are very unlucky in sampling our observations (e.g. **adversarial sampling** such as always sampling $x_{2}=2x_{1}$ )
 
->[!danger] When do MRL.4 fails?
->1. can fail is if the functional relationship between the explained and explanatory variables is misspecified in the regression equation
->2. omitting an important factor that is correlated with any of $x_{1},\dots,x_{k}$ $\implies$ some $x_j$ is correlated with $u$ $\implies$ $x_{j}$ is an **endogenous** explanatory variable
+>[!danger] When do MLR.4 fails?
+>1. can fail is if the functional relationship between the explained and explanatory variables is **misspecified** in the regression equation
+>2. omitting an important factor that is correlated with any of $x_{1},\dots,x_{k}$ $\implies$ some $x_j$ is correlated with $u$ $\implies$ $x_{j}$ is an **endogenous** explanatory variable ([[Endogeneity]] issue).
+
 
 #### Theorem: Unbiasedness of Sampling Expected Values of OLS Estimators
 Under Assumptions <mark style="background: #ADCCFFA6;">MLR.1</mark> through <mark style="background: #ADCCFFA6;">MLR.4</mark> we have:
@@ -196,20 +207,23 @@ $$
 
 **Simplification trick**: add homoskedasticity assumption to make the variance evaluation easier.
 
-5. **Homoskedasticity** <mark style="background: #CACFD9A6;">(MRL.5)</mark>: error u has the same variance given any value of the explanatory variable, i.e. :
+5. **Homoskedasticity** <mark style="background: #CACFD9A6;">(MLR.5)</mark>: error u has the same variance given any value of the explanatory variable, i.e. :
 $$
 \mathrm{Var}(u|x_{1},\dots ,x_{k})=\sigma^2
 $$
 >[!info] Gauss-Markov assumptions
->[[Gauss-Markov Assumptions]] are the assumptions from <mark style="background: #ADCCFFA6;">MRL.1</mark> to <mark style="background: #ADCCFFA6;">MRL.5</mark>
+>[[Gauss-Markov Assumptions]] are the assumptions from <mark style="background: #ADCCFFA6;">MLR.1</mark> to <mark style="background: #ADCCFFA6;">MLR.5</mark>
 
 #### Theorem: Sampling Variances of the OLS Estimators
 Under Assumptions <mark style="background: #CACFD9A6;">MLR.1</mark> through<mark style="background: #CACFD9A6;"> MLR.5</mark>,
 
 $$\mathrm{Var}(\hat{\beta}_{j}) = \frac{\sigma^{2}}{\mathrm{SST}_{j}\cdot(1-R_{j}^2)} \quad ,j=1,\dots,k$$
 where:
-- $\mathrm{SST}=\sum_{i=1}^{n} (x_{ij}-\bar{x}_{j})^{2}$
+- $\mathrm{SST}_{j}=\sum_{i=1}^{n} (x_{ij}-\bar{x}_{j})^{2}$
 - $R_{j}^2$ is R-squared from regressing $x_{j}$ on all the other independent variables
+
+>[!tip] A difference with the SLR model
+>For the [[Simple Regression Model]] the variance was similar but we had no $1-R_{j}^2$ term at the denominator!
 
 >[!danger] The importance of the estimator variance
 >A larger variance means a less precise estimator, and this translates into larger confidence intervals and less accurate hypotheses tests.
@@ -225,15 +239,15 @@ The components are of $\mathrm{Var}(\hat{\beta}_{j})$:
 	- only one way to reduce $\sigma^2$ is to add more explanatory variables
 	
 2. The **Total Sample Variation** in $x_{j}$ $\rightarrow$ $\mathrm{SST_{j}}$
-	- larger $\mathrm{SST_{j}}$ $\implies$ lager $\mathrm{Var}(\hat{\beta}_{j})$
+	- larger $\mathrm{SST_{j}}$ $\implies$ smaller $\mathrm{Var}(\hat{\beta}_{j})$
 	- a way to increase $\mathrm{SST_{j}}$ is to increase $n$ (number of samples)
 	
 3. The **Linear Relationships among the Independent Variables** $\rightarrow$ $R^2_{j}$
 	- high degree of linear relation among variables $\iff$ $R^2_{j} \rightarrow 1$ $\implies$ larger $\mathrm{Var}(\hat{\beta}_{j})$
-	- $R^2_{j}$ is the proportion of the total variation in $x_{}j$ that can be explained by the other independent variables appearing in the equation
-	- Extreme cases for a given $\sigma^2$ and $\text{SST}_j$:
-		- the smallest $\text{Var}(\hat{b}_j)$ $\iff$ $R^2_j = 0$ $\iff$ $x_j$ has zero sample correlation with every other independent variable
-		- the highest $\mathrm{Var}(\hat{\beta}_{j})$ $\iff$ $R^2_j \rightarrow 1$ $\iff$ High (but not perfect) correlation between two or more independent variables i.e. **multicollinearity**
+	- $R^2_{j}$ is the proportion of the total variation in $x_{j}$ that *can be explained by the other independent variables* appearing in the equation
+	- Extreme cases for a given (fixed) $\sigma^2$ and $\text{SST}_j$:
+		- the smallest $\text{Var}(\hat{\beta}_j)$ $\iff$ $R^2_j = 0$ $\iff$ $x_j$ has zero sample correlation with every other independent variable
+		- the highest $\mathrm{Var}(\hat{\beta}_{j})$ $\iff$ $R^2_j \rightarrow 1$ $\iff$ High (but not perfect) correlation between two or more independent variables i.e. **[[Multicollinearity]]**
 
 ![[Pasted image 20240706194140.png|470x410]]
 
@@ -245,7 +259,7 @@ The components are of $\mathrm{Var}(\hat{\beta}_{j})$:
 #### Estimating $\sigma^2$ to estimate OLS Variance
 
 **Goal**:
-We need an unbiased estimator of $\sigma^2$ to obtain un biased estimator of $\mathrm{Var}(\hat{\beta}_{j}) = \frac{\sigma^{2}}{\mathrm{SST}_{j}\cdot(1-R_{j}^2)}$
+We need an unbiased estimator of $\sigma^2$ to obtain unbiased estimator of $\mathrm{Var}(\hat{\beta}_{j}) = \frac{\sigma^{2}}{\mathrm{SST}_{j}\cdot(1-R_{j}^2)}$
 
 **Solution**:
 As for the Simple Linear Regression model, we know that $\sigma^2=\frac{1}{n}\sum_{i=1}^n\hat{u}_{i}^2$ would be a biased estimator $\implies$ we need to account for the degrees of freedom generalizing the estimator that we obtained in the SLR setup for our MLR setup with $k$ independent variables:
@@ -278,19 +292,13 @@ $$
 \mathrm{sd}(\hat{\beta}_{j})=\sigma/[\mathrm{SST}_{j}(1-R_{j}^{2})]^{1/2}
 $$
 2. We can derive an estimate of $\mathrm{sd}(\hat{\beta}_{j})$ by introducing the **OLS Standard Error**:
-	- in the *homoscedastic* setup:
-$$
-\mathrm{se}(\hat{\beta}_{j})=\hat{\sigma}/[\mathrm{SST}_{j}(1-R_{j}^{2})]^{1/2}
-$$
-	- in the *heteroscedastic* setup:
-$$
-\mathrm{se}(\hat{\beta}_j)=\frac{\hat{\sigma}}{\sqrt{n}\cdot\mathrm{sd}(x_j) \sqrt{1 - R_j^2}}
-$$
+	- in the *homoscedastic* setup: $$\mathrm{se}(\hat{\beta}_{j})=\frac{\hat{\sigma}}{\mathrm{SST}_{j}\cdot(1-R_{j}^{2})^{1/2}}$$
+	- in the *heteroscedastic* setup: $$\mathrm{se}(\hat{\beta}_j)=\frac{\hat{\sigma}}{\sqrt{n}\cdot\mathrm{sd}(x_j) \sqrt{1 - R_j^2}}$$
 		where $\mathrm{sd}(x_{j})$ is the **sample standard deviation**:
 $$
 \mathrm{sd}(x_{j})=\sqrt{n^{-1}\sum_{i=1}^{n}(x_{ij}-\overline{x}_{j})^{2}}
 $$
->[!danger] Keep in mind the Bias-Variance trade-off
+>[!danger] Keep in mind the [[Bias-Variance Trade-off]]
 >While the presence of **heteroskedasticity** does not cause bias in the $\hat{\beta}_j$, it does lead to bias in the usual formula for $\text{Var}(\hat{\beta}_j)$, which then invalidates the standard errors.
 
 ## Efficiency of OLS
@@ -307,15 +315,15 @@ Perform statistical inference using the full sampling distribution of the OLS Es
 So far we were able to only derive the first and second moments of $\hat{\beta}_{j}$.
 
 **Solution**:
-We introduce a new assumption to the Gauss-Markov Assumptions, leading to a new set of assumptions called [[Classical Linear Model Assumptions]] (CRL Assumptions <mark style="background: #ADCCFFA6;">MRL.1</mark> - <mark style="background: #ADCCFFA6;">MRL.6</mark>).
+We introduce a new assumption to the Gauss-Markov Assumptions, leading to a new set of assumptions called [[Classical Linear Model Assumptions]] (CRL Assumptions <mark style="background: #ADCCFFA6;">MLR.1</mark> - <mark style="background: #ADCCFFA6;">MLR.6</mark>).
 
-6. **Normality** <mark style="background: #ADCCFFA6;">(MRL.6)</mark>: error $u$ is *independent of the explanatory variables* $x_1, x_2, \ldots, x_k$ and is *normally distributed* with zero mean and variance $\sigma^2$, i.e.: 
+6. **Normality** <mark style="background: #ADCCFFA6;">(MLR.6)</mark>: error $u$ is *independent of the explanatory variables* $x_1, x_2, \ldots, x_k$ and is *normally distributed* with zero mean and variance $\sigma^2$, i.e.: 
 $$u \sim \text{Normal}(0, \sigma^2)$$
-**CRL** assumptions (<mark style="background: #ADCCFFA6;">MRL.1</mark> - <mark style="background: #ADCCFFA6;">MRL.6</mark>) can be summarized in:
+**CRL** assumptions (<mark style="background: #ADCCFFA6;">MLR.1</mark> - <mark style="background: #ADCCFFA6;">MLR.6</mark>) can be summarized in:
 $$ y|\mathbf{x}\sim\mathrm{Normal}(\beta_0+\beta_1x_1+\beta_2x_2+...+\beta_kx_k,\sigma^2)$$
 ![[Pasted image 20240707192009.png]]
 #### Minimum Variance Unbiased Estimators
-When we add MRL.6 to the Gauss-Markov Assumptions, we improve the **efficiency** of the **[[BLUE Estimator]]s** estimators $\hat{\beta}_{1},\dots,\hat{\beta}_{k}$ making them not only the best (min. variance) estimator among the all unbiased linear estimators, but the **minimum variance estimators** among **all the possible unbiased estimators** (not strictly the linear ones).
+When we add MLR.6 to the Gauss-Markov Assumptions, we improve the **efficiency** of the **[[BLUE Estimator]]s** estimators $\hat{\beta}_{1},\dots,\hat{\beta}_{k}$ making them not only the best (min. variance) estimator among the all unbiased linear estimators, but the **minimum variance estimators** among **all the possible unbiased estimators** (not strictly the linear ones).
 
 #### Theorem: Normal Sampling Distributions of the OLS Estimators
 Under the [[Classical Linear Model Assumptions]] <mark style="background: #ADCCFFA6;">MLR.1</mark> through <mark style="background: #ADCCFFA6;">MLR.6</mark>, conditional on the sample values of the independent variables, we have that Normality of the error term translates into *normal sampling distributions of the OLS estimators*:
@@ -330,7 +338,7 @@ $$
 2. Define weights $w_{ij}$: they depend only on the independent variables, hence are nonrandom
 3. Nature of $\hat{\beta}_j$: Linear combination of errors $u_i$
 4. Assumptions:
-	1. MLR.6: Errors $u_i$ are i.i.d. $\text{Normal}(0, s^2)$
+	1. MLR.6: Errors $u_i$ are i.i.d. $\text{Normal}(0, \sigma^2)$
 	2. MLR.2: Random sampling
 5. Statistical Property: Linear combination of independent normal variables is normally distributed
 6. Conclusion: $\hat{\beta}_j$ is normally distributed
@@ -346,7 +354,7 @@ $$
 $$
 
 3. We can use the [[T-test]] for testing the **statistical significance** of **individual** independent variables
-4. We can find confidence intervals for the OLS coefficients
+4. We can find confidence intervals for the OLS coefficients (using the corresponding standard errors)
 5. We can use the [[F-test]] or the [[Lagrange Multiplier Test]] for testing **joint statistical significance** of **multiple** independent variables
 
 ## Consistency of OLS
@@ -356,7 +364,7 @@ $$
 **Interpretation**:
 - Let $\hat{\beta}_j$ be the OLS estimator of $\beta_j$ for some $j$. 
 - For each $n$, $\hat{\beta}_j$ has a probability distribution representing its possible values in different random samples of size $n$.
-- Assumptions MLR.1 through MLR.4 $\implies$ $\hat{\beta}_j$ is unbiased $\implies$ this distribution has mean value $\beta_j$. 
+- Assumptions <mark style="background: #ADCCFFA6;">MLR.1</mark> through <mark style="background: #ADCCFFA6;">MLR.4</mark> $\implies$ $\hat{\beta}_j$ is unbiased $\implies$ this distribution has mean value $\beta_j$. 
 - If this estimator is consistent 
 	- $\implies$ the distribution of $\hat{\beta}_j$ becomes more and more tightly distributed around $\beta_j$ as the sample size grows
 	- $\implies$ as $n$ tends to infinity, the distribution of $\hat{\beta}_j$ collapses to the single point $\beta_j$
@@ -367,20 +375,20 @@ $$
 #### Theorem: Consistency of OLS
 Under assumptions <mark style="background: #ADCCFFA6;">MLR.1</mark> - <mark style="background: #ADCCFFA6;">MLR.4</mark>, the OLS estimator $\hat{\beta}_j$ is **consistent** for $\beta_j$, for all $j = 0, 1, \ldots, k$.
 
->[!tip] MRL.4' vs MRL.4
->Moreover we can relax the MRL.4 assumption for consistency since the probability limit of the coefficient of a variable in the [[Simple Regression Model]] setup is $$\operatorname{plim}\hat{\beta}_1=\beta_1+\operatorname{Cov}(x_1,u)/\operatorname{Var}(x_1),$$
+>[!tip] MLR.4' vs MLR.4
+>Moreover we can relax the MLR.4 assumption for consistency since the probability limit of the coefficient of a variable in the [[Simple Regression Model]] setup is $$\operatorname{plim}\hat{\beta}_1=\beta_1+\operatorname{Cov}(x_1,u)/\operatorname{Var}(x_1),$$
 >and actually exists if:
 >- $Var(x_{1})<\infty$
 >- $Var(u) < \infty$
 >$\implies$ OLS is consistent in the simple regression case if we **assume only zero correlation**
 >
->MRL.4' :  $\mathbb{E}(u) = 0$ and $Cov(x_{j},u) = 0$, for $j = 1, 2, ..., k.$
+>MLR.4' :  $\mathbb{E}(u) = 0$ and $Cov(x_{j},u) = 0$, for $j = 1, 2, ..., k.$
 
 #### Derive the inconsistency of OLS
 
 >[!tip] Parallelism bias-consistency 
->- Failure of $E(u \mid x_1, \ldots, x_k) = 0$ $\implies$ bias in the OLS estimators,
->- Correlation between $u$ and any of $x_1, x_2, \ldots, x_k$ $\implies$ all of the OLS estimators to be inconsistent. 
+>- Failure of $E(u \mid x_1, \ldots, x_k) = 0$ (MRL.4) $\implies$ bias in the OLS estimators,
+>- Correlation between $u$ and any of $x_1, x_2, \ldots, x_k$ (MRL.4') $\implies$ inconsistent OLS estimators
 >
 >Thus if the error is correlated with any of the independent variables $\implies$ OLS is **biased** and **inconsistent** $\implies$ any bias persists as the sample size grows.
 
@@ -388,7 +396,7 @@ Under assumptions <mark style="background: #ADCCFFA6;">MLR.1</mark> - <mark styl
 $$
 \text{plim } \hat{\beta}_1 - \beta_1 = \frac{\text{Cov}(x_1, u)}{\text{Var}(x_1)}. \tag{5.4}
 $$
-- Because $\text{Var}(x_1) > 0$, the inconsistency in $\hat{b}_1$:
+- Because $\text{Var}(x_1) > 0$, the inconsistency in $\hat{\beta}_1$:
 	- is positive $\iff$ $x_1$ and $u$ are positively correlated
 	- is negative $\iff$ $x_1$ and $u$ are negatively correlated
 	- can be negligible $\iff$ the covariance between $x_1$ and $u$ is small relative to the variance in $x_1$
@@ -413,10 +421,15 @@ $$
 		4. If the covariance between $x_1$ and $x_2$ is small relative to the variance of $x_1$ $\implies$ inconsistency can be small.
 
 >[!info] Inconsistency vs bias
->For practical purposes, we can view the inconsistency as being the same as the bias. The difference is that the inconsistency is expressed in terms of the population variance of $x_1$ and the population covariance between $x_1$ and $x_2$, while the bias is based on their sample counterparts (because we condition on the values of $x_1$ and $x_2$ in the sample).
+>For practical purposes, we can view the inconsistency as being the same as the bias. The difference is that
+>- the inconsistency is expressed in terms of the population variance of $x_1$ and the population covariance between $x_1$ and $x_2$, 
+>- while the bias is based on their sample counterparts (because we condition on the values of $x_1$ and $x_2$ in the sample).
 
 >[!danger] Inconsistency with more data
 >An important point about inconsistency in OLS estimators is that the problem does not go away by adding more observations to the sample. If anything, the problem gets worse with more data!
+
+>[!note]
+>See the notes on the [[Bias-Variance Trade-off]] to get more info on the bias... Notice that the procedure for obtaining an estimate of the inconsistency term is practically the same we pursue for obtaining the bias term (with for the latter we are in the "sample setup")
 
 ## Asymptotic Normality of OLS
 
@@ -437,27 +450,22 @@ Under the Gauss-Markov Assumptions <mark style="background: #ADCCFFA6;">MLR.1</m
 	-  $\hat{r}_{ij}$ $\rightarrow$ residuals from regressing $x_j$ on the other independent variables. 
 
 2. $\hat{\sigma}^2$ is a consistent estimator of $\sigma^2 = \text{Var}(u)$.
-3. For each $j$,
-
-$$
-\begin{cases}
+3. For each $j$, $$\begin{cases}
 \frac{\hat{\beta}_j - \beta_j}{\text{sd}(\hat{\beta}_j)} \xrightarrow{a} \text{Normal}(0, 1) \\ \\
 \frac{\hat{\beta}_j - \beta_j}{\text{se}(\hat{\beta}_j)} \xrightarrow{a} \text{Normal}(0, 1)
-\end{cases}
-$$
+\end{cases}$$
 
-	where $\text{se}(\hat{\beta}_j)$ is the usual OLS standard error
+where $\text{se}(\hat{\beta}_j)$ is the usual OLS standard error
 
 **Interpretation**:
-Regardless of the population distribution of u, the OLS estimators, when properly standardized, have approximate standard normal distributions.
+Regardless of the population distribution of u, the OLS estimators, when properly standardized, have approximate standard normal distributions (also when we use the standard error in place of standard deviation for standardization!).
 
 >[!warning] 
->1. If the sample size is not very large, then the t distribution can be a poor approximation to the distribution of the t statistics when u is not normally distributed
->2. The quality of the approximation depends not just on $n$, but on the $df= n - k - 1$ $\implies$ with more independent variables in the model, a larger sample size is usually needed to use the t approximation.
+>1. If the sample size is not very large, then the t distribution can be a poor approximation to the distribution of the t statistics when $u$ is not normally distributed
+>2. The quality of the approximation depends not just on $n$, but on the $df= n - k - 1$ $\implies$ with **more independent variables** in the model, a **larger sample size** is usually needed to use the t approximation.
 >3. The above theorem does require the homoskedasticity assumption $\implies$ otherwise usual t statistics and confidence intervals are invalid no matter how large the sample size is
 >4. The asymptotic standard error is: $$\begin{cases}
 \mathrm{se}(\hat{\beta}_j)\approx c_j/\sqrt{n}\\ \\
 c_j=\frac\sigma{\sigma_j\sqrt{1-\rho_j^2}}
 \end{cases}$$ 
-
 

@@ -27,12 +27,12 @@ $$
 ## Zero conditional mean assumption
 
 **Zero mean assumption**
-If $\beta_{0}$ is defined in the simple regression equation, by simply redefine the intercept, we can always assume that:
+If $\beta_{0}$ is defined in the simple regression equation, by simply redefining the intercept, we can always assume that:
 $$
 \mathbb{E}(u) = 0
 $$
 __Mean independence assumption__
-Assuming $u$ and $x$ to be uncorrelated would not be enough since correlation only measures **linear independence.** We can instead assume that the average value of $u$ doesn't depend on the value of $x$ i.e.:
+Assuming $u$ and $x$ to be uncorrelated would not be enough since correlation only measures **linear independence** (but for the consistency of the OLS estimates we are going to see that ero correlation would be enough!). We can instead assume that the average value of $u$ doesn't depend on the value of $x$ i.e.:
 $$
 \mathbb{E}(u|x)=\mathbb{E}(u)
 $$
@@ -49,14 +49,11 @@ $$
 $$
 ![[Pasted image 20240429190802.png|450x390]]
 #### Implications
-1. __Population regression function (PRF)__ 
-   $$
-\mathbb{E}(y|x) = \beta_{0} + \beta_{1} x
-$$
-	This eq. tells us that we can break $y$ in two parts:
+1. __Population regression function (PRF)__ $$\mathbb{E}(y|x) = \beta_{0} + \beta_{1} x$$This eq. tells us that we can break $y$ in two parts:
 	- the _systematic part_ of $y$ (explained by $x$) : $\beta_{0} + \beta_{1} x$
 	- the _unsystematic part_ of $y$ (not explained by $x$) : $u$
-2. The correlation between $u$ and $x$ is zero, i.e. :
+
+1. The correlation between $u$ and $x$ is zero, i.e. :
 $$
 Cov(x,u)=\mathbb{E}(xu) =0
 $$
@@ -71,7 +68,7 @@ Given a random sample of data $\{x_{i}, y_{i}: i=1,\dots,n\}$ we can estimate $\
 the OLS estimates for our parameters are:
 
 $$
-\hat{\beta}_{0} = \bar{y} - \hat{\beta}_{1}\hat{x}
+\hat{\beta}_{0} = \bar{y} - \hat{\beta}_{1}\bar{x}
 $$
 $$
 \hat{\beta}_1=\frac{\sum_{i=1}^n\left(x_i-\bar{x}\right)\left(y_i-\bar{y}\right)}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}.
@@ -105,7 +102,7 @@ $$
 $$
 - **Explained sum of squares**
 	- $\to$ a measure of the sample variation in the $\hat{y}_{i}$
-	- consider that $\bar{\hat{y}}=\hat{y}$
+	- consider that $\bar{\hat{y}}=\bar{y}$
 $$
 \\\mathrm{SSE}\equiv\sum_{i=1}^{n}(\hat{y}_{i}-\bar{y})^{2}
 $$
@@ -115,7 +112,7 @@ $$
 \\\mathrm{SSR}\equiv\sum_{i=1}^{n}\hat{u}_{i}^{2}
 $$
 >[!tip] Relation between $\mathrm{SST} ,\; \mathrm{SSE},\; \mathrm{SSR}$
->By using the properties of the summation operator and some algebre, we can proof that:
+>By using the properties of the summation operator and some algebra, we can proof that:
 > $$\mathrm{SST}=\mathrm{SSE}+\mathrm{SSR}$$
 
 ## Goodness-of-fit
@@ -131,7 +128,7 @@ $$
 R^2\equiv\mathrm{SSE/SST}=1-\mathrm{SSR/SST}
 $$
 > [!tip] Properties
-> - $R^2$ is interpreted as the fraction of the sample variation in y that is explained by x
+> - $R^2$ is interpreted as the fraction of the sample variation in $y$ that is explained by $x$
 > - $R^2 \in [0,1]$ 
 > -  $R^2 \simeq 0$ poor fit of the OLS line
 > - $R^2$ is equal to the square of the sample correlation coefficient between $y_{i}$ and $\hat{y}_i$
@@ -145,7 +142,7 @@ still possible that the regression line is a good estimate of the ceteris paribu
 
 ### Changing Units of Measurement
 
-OLS estimates change in entirely expected ways when the units of measurement of the dependent and independent variables change.
+OLS estimates change in entirely expected ways when the units of measurement of the dependent and independent variables change (see the [[Scaling]] notes in the "Advanced Relations section for a generalization to the [[Multiple Regression Model]] setup).
 
 - If the dependent variable is multiplied by the constant $c$ then the OLS intercept and slope estimates are also multiplied by $c$.
 - If the independent variable is divided/multiplied by some nonzero constant, $c$, then:
@@ -156,27 +153,27 @@ OLS estimates change in entirely expected ways when the units of measurement of 
 
 We have focused on linear relationships between the dependent and independent variables but it is rather easy to incorporate many nonlinearities into simple regression analysis by appropriately defining the dependent and independent variables.
 
-> <mark style="background: #ABF7F7A6;">Example 1</mark>:
-> Probably a better characterization of how wage changes with education is that each 
-> year of education increases wage by a constant percentage.
-> A model that gives (approximately) a constant percentage effect is:
-> $$
+<mark style="background: #ABF7F7A6;">Example 1</mark>:
+ Probably a better characterization of how wage changes with education is that each 
+year of education increases wage by a *constant percentage*.
+A model that gives (approximately) a constant percentage effect is:
+ $$
 \log(wage)=\beta_0+\beta_1educ+u
 $$
 
-> <mark style="background: #ABF7F7A6;">Example 2</mark>:
-> Another important use of the natural log is in obtaining a constant elasticity model.
-> A constant elasticity model is:
-> $$
+ <mark style="background: #ABF7F7A6;">Example 2</mark>:
+ Another important use of the natural log is in obtaining a *constant elasticity* model.
+ A constant elasticity model is:
+ $$
 \log(salary)=\beta_0+\beta_1\log(sales)+u
 $$
 
-Here we report a table of typical use cases in econometrics:
+Here we report a table of typical use cases in econometrics (see the [[Quadratic form]] and [[Logarithmic form]] notes in the "Advanced Relations section for a generalization to the [[Multiple Regression Model]] setup):
 
 ![[Pasted image 20240429215935.png]]
 
 > [!warning]
-> The simple regression equation is linear in the parameters $\beta_{0}$ and $\beta_{1}$ but there are no restrictions on how y and x relate to the original explained and explanatory variables of interest!
+> The simple regression equation is linear in the parameters $\beta_{0}$ and $\beta_{1}$ but there are no restrictions on how $y$ and $x$ relate to the original explained and explanatory variables of interest!
 > But, as we have just seen, the interpretation of the coefficients does depend on the variables definitions!
 
 ## Expected Values of OLS Estimators
@@ -209,13 +206,15 @@ $$
 >$$\mathbb{E}(u_{i}|x_{i})=0 \quad i=1,2,...,n$$
 
 >[!info] SRL.4 raison d'être
->SRL.4, coupled with SRL.2 and SRL.3, allows us to derive the statistical properties of the OLS estimators as conditional on the values of the xi in our sample (a nice trick).
+>SRL.4, coupled with SRL.2 and SRL.3, allows us to derive the statistical properties of the OLS estimators as conditional on the values of the $x_i$ in our sample (a nice trick).
 
 >[!warning] Comments on SRL assumptions
 >- <mark style="background: #CACFD9A6;">SRL.2</mark> can fail in a cross section when samples are not representative of the underlying population;
->- if the sample standard deviation of $x_{}i$ is zero, then Assumption <mark style="background: #CACFD9A6;">SLR.3</mark> fails; otherwise, it holds;
+>- if the sample standard deviation of $x_{i}$ is zero, then Assumption <mark style="background: #CACFD9A6;">SLR.3</mark> fails; otherwise, it holds;
 >- <mark style="background: #CACFD9A6;">SLR.3</mark> almost always holds in interesting regression applications;
->- if <mark style="background: #CACFD9A6;">SLR.4</mark> fails, the OLS estimators generally will be biased $\implies$ possibility that $x$ is correlated with $u$ is almost always a concern in simple regression analysis with nonexperimental data.
+>- if <mark style="background: #CACFD9A6;">SLR.4</mark> fails, the OLS estimators generally will be *biased* $\implies$ possibility that $x$ is correlated with $u$ is almost always a concern in simple regression analysis with nonexperimental data.
+
+
 #### Theorem: Unbiasedness of Sampling Expected Values of OLS Estimators
 
 Using Assumptions <mark style="background: #CACFD9A6;">SLR.1</mark> through <mark style="background: #CACFD9A6;">SLR.4</mark>, for any values of $\beta_{0}$ and $\beta_{1}$ we can derive the expected values of the OLS estimators:
@@ -233,7 +232,7 @@ $$
 >[!warning] Trick for variance computation
 >It turns out that the variance of the OLS estimators can be computed under Assumptions SLR.1 through SLR.4. However, these expressions would be somewhat complicated. Instead, we add **homoskedasticity** assumption.
 
-5. **Homoskedasticity** <mark style="background: #CACFD9A6;">(SRL.5)</mark>: error u has the same variance given any value of the explanatory variable, i.e. :
+5. **Homoskedasticity** <mark style="background: #CACFD9A6;">(SRL.5)</mark>: error $u$ has the same variance given any value of the explanatory variable, i.e. :
    $$
 \mathrm{Var}(u|x)=\sigma^2
 $$
@@ -249,13 +248,13 @@ $$
 > - We add assumption <mark style="background: #CACFD9A6;">SLR.5</mark> because:
 > 	-  it simplifies the variance calculations for $\hat{\beta}_{0}$ and $\hat{\beta}_{1}$ 
 > 	- it implies that ordinary least squares has certain efficiency properties
-> - If we were to assume that $u$ and $x$ are independent, $\mathrm{Var}(u|x)=\sigma^2$ but independence would be a too strong (conservative) assumption
+> - If we were to assume that $u$ and $x$ were independent, $\mathrm{Var}(u|x)=\sigma^2$ but *independence would be a too strong (conservative) assumption*
 > - it can be proved that the **error variance**  is given by the unconditional variance of $u$:
 >$$\sigma^2 = Var(u|x) = \mathbb{E}[u^2|x] - [\mathbb{E}[u|x]]= \mathbb{E}[u^2]=Var(u)$$
 > - A larger $\sigma$ means that the distribution of the unobservables affecting $y$ is more spread out 
 
 >[!info] Heteroskedasticity on the opposite
->- When $Var(u|x)$ depends on $x$ $\implies$ the error term exhibits  **heteroskedasticity**
+>- When $Var(u|x)$ depends on $x$ $\implies$ the error term exhibits  **[[Heteroskedasticity]]**
 >- Because $Var(u|x) = Var(y|x)$  , heteroskedasticity is present whenever $Var(y|x)$ is a function of $x$.
 
 #### Theorem: Sampling Variances of the OLS Estimators

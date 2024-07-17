@@ -5,14 +5,17 @@ Random samples are drawn *at each time period* from the same population getting 
 >Different differentiation techniques $\iff$ different Panel Data Model
 
 #### Why?
-We use Panel Data models to distinguish the **unobserved factors** affecting the dependent variable in 2 types:
-1. those that are **constant over time** $\implies$ $u_{it}$
-2. those that **vary over time** $\implies$ $a_{i}$
+We use Panel Data models in place of [[Pooled Multiple Regression Model]], to:
+
+1. Distinguish the **unobserved factors** affecting the dependent variable in 2 types:
+	1. those that are **constant over time** $\implies$ $u_{it}$
+	2. those that **vary over time** $\implies$ $a_{i}$
+2. Allow  the correlation between $a_{i}$ and $x_{it}$ without risking [[Endogeneity]] Bias
 
 #### Setup with $t=2$ periods of time:
 - **Notation**:
 	- $i$ denotes the cross-sectional unit (observation) and $t$ the time period
-	- $d2_{t}$ is a dummy variable s.t. it not changes for different observations (indep. from $i$):
+	- $d2_{t}$ is a time dummy variable s.t. it not changes for different observations (indep. from $i$):
 		$$
 		d2_{t}=
 		\begin{cases}
@@ -39,19 +42,20 @@ $$
 > - $u_{it}$ $\implies$ might include demographic features of the population (age, race, and education) that are non-constant over time
 
 **Problem**:
-1. Given the composite error $v_{it}=u_{it} + a_{i}$
-2. We can solve the above model using the Pooled OLS Estimates
-3. The problem is that in this case we should assume:
+1. Given the **composite error** $v_{it}=u_{it} + a_{i}$
+2. We could solve the above model using the **Pooled OLS Estimates**
+3. The problem is that in this case we have to assume:
 	- $v_{it}$ uncorrelated with $x_{it}$
-	- $\implies$ $a_{i}$ uncorrelated with $x_{it}$ (since $u_{it}$ uncorrelated with $x_{it}$ by Gauss-Markov ass.)
-	- $\implies$ otherwise we would get **Heterogeneity Bias**
+	- $\implies$ $a_{i}$ uncorrelated with $x_{it}$ (since $u_{it}$ uncorrelated with $x_{it}$ by [[Gauss-Markov Assumptions]])
+	- $\implies$ otherwise we would get **[[Endogeneity]] Bias**
 4. Using Pooled OLS on Panel Data doesn't solve the omitted variables problem
 5. We should find a model that allows the correlation between $a_{i}$ and $x_{it}$
 
 **Solution**:
-Because $a_{i}$ is constant over time we can apply some differencing technique (w.r.t. time/periods) to preprocess data in order to not include the fixed effect term inside our equation and allow an existing correlation without affecting the validity of the OLS estimates.
+Because $a_{i}$ is constant over time we can apply some differencing technique (w.r.t. time/periods) to preprocess data in order to **not include the fixed effect term inside our equation** and allow an existing correlation without affecting the validity of the OLS estimates.
 
 #### Possible differencing approaches
+
 1. **[[First Differencing Model]]**
 2. **[[Average Differencing Fixed Effect Model]]**
 3. Generalized **[[Random Effect Model]]**
