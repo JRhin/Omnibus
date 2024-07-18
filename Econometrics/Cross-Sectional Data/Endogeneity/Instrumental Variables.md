@@ -125,7 +125,7 @@ $$
 	1. $\mathbb{E}(u_{1})=0$
 	2. $Cov(z_{1},u_{1})=0$
 	3. $Cov(z_{2},u_{1})=0$
-- We finally use the method of moments and the above conditions to get the IV Estimators $\hat{\beta}_{0}, \hat{\beta}_{1},\hat{\beta}_{2}$:
+- We finally use the **method of moments** and the above conditions to get the IV Estimators $\hat{\beta}_{0}, \hat{\beta}_{1},\hat{\beta}_{2}$:
 $$
 \begin{cases}
 \sum_{i=1}^{n}(y_{i1}-\hat{\beta}_{0}-\hat{\beta}_{1}y_{i2}-\hat{\beta}_{2}z_{i1})=0\\\sum_{i=1}^{n}z_{i1}(y_{i1}-\hat{\beta}_{0}-\hat{\beta}_{1}y_{i2}-\hat{\beta}_{2}z_{i1})=0\\\sum^{n}z_{i2}(y_{i1}-\hat{\beta}_{0}-\hat{\beta}_{1}y_{i2}-\hat{\beta}_{2}z_{i1})=0

@@ -29,7 +29,7 @@ $$\implies \log(u^{2})=\mathrm{a}_{0}+\delta_{1}x_{1}+\delta_{2}x_{2}+\ldots+\de
  1. Run the regression of $y$ on $x_1, x_2, \ldots, x_k$ and obtain the residuals, $\hat{u}$.
  2. Create $\log(\hat{u}^2)$ by first squaring the OLS residuals and then taking the natural log.
  3. Run the regression (OLS) $$\log(u^{2})=\mathrm{a}_{0}+\delta_{1}x_{1}+\delta_{2}x_{2}+\ldots+\delta_{k}x_{k}+e$$ 
- 4. Obtain the fitted values, $$\hat{g}=\mathrm{\hat{a}}_{0}+\hat{\delta}_{1}x_{1}+\hat{\delta}_{2}x_{2}+\ldots+\hat{\delta}_{k}x_{k}$$.
+ 4. Obtain the fitted values, $$\hat{g}=\mathrm{\hat{a}}_{0}+\hat{\delta}_{1}x_{1}+\hat{\delta}_{2}x_{2}+\ldots+\hat{\delta}_{k}x_{k}$$
  5. Exponentiate the fitted values, getting: $\hat{h} = \exp(\hat{g})$.
  6. Estimate the equation $y = \beta_0 + \beta_1 x_1 + \ldots + \beta_k x_k + u$ by **WLS**, using weights $1/\hat{h}$.
     In other words, we replace $h_i$ with $\hat{h}_i$ in equation:

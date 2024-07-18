@@ -323,7 +323,7 @@ $$u \sim \text{Normal}(0, \sigma^2)$$
 $$ y|\mathbf{x}\sim\mathrm{Normal}(\beta_0+\beta_1x_1+\beta_2x_2+...+\beta_kx_k,\sigma^2)$$
 ![[Pasted image 20240707192009.png]]
 #### Minimum Variance Unbiased Estimators
-When we add MLR.6 to the Gauss-Markov Assumptions, we improve the **efficiency** of the **[[BLUE Estimator]]s** estimators $\hat{\beta}_{1},\dots,\hat{\beta}_{k}$ making them not only the best (min. variance) estimator among the all unbiased linear estimators, but the **minimum variance estimators** among **all the possible unbiased estimators** (not strictly the linear ones).
+When we add <mark style="background: #ADCCFFA6;">MLR.6</mark> to the Gauss-Markov Assumptions, we improve the **efficiency** of the **[[BLUE Estimator]]s** estimators $\hat{\beta}_{1},\dots,\hat{\beta}_{k}$ making them not only the best (min. variance) estimator among the all unbiased linear estimators, but the **minimum variance estimators** among **all the possible unbiased estimators** (*not strictly the linear ones*).
 
 #### Theorem: Normal Sampling Distributions of the OLS Estimators
 Under the [[Classical Linear Model Assumptions]] <mark style="background: #ADCCFFA6;">MLR.1</mark> through <mark style="background: #ADCCFFA6;">MLR.6</mark>, conditional on the sample values of the independent variables, we have that Normality of the error term translates into *normal sampling distributions of the OLS estimators*:

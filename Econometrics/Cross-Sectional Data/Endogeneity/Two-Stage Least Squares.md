@@ -1,5 +1,7 @@
 **Issue**:
-We have to extend the [[Instrumental Variables]]-based estimation process for the [[Multiple Regression Model]] to the case where multiple possible exogenous (relevant variables correlated with the dependent variable) have been omitted or multiple valid Instrumental Variables actually exist!
+We have to extend the [[Instrumental Variables]]-based estimation process for the [[Multiple Regression Model]] to the cases where:
+1. we have **multiple possible exogenous**, i.e. relevant variables correlated with the dependent variable that are actually omitted
+2. we have **multiple endogenous** variables in the regression model
 
 #### Case 1: one endogenous explanatory variable and multiple omitted variables
 
@@ -54,7 +56,7 @@ We have to extend the [[Instrumental Variables]]-based estimation process for th
 >5. The above variance is larger than the once in OLS
 
 
-#### Case 2: multiple endogenous explanatory variables
+#### Case 2: **multiple endogenous** explanatory variables
 
 - Given for example:
 	- a simple MRL setup such as: $$y_1=\beta_0+\beta_1y_2+\beta_2y_3+\beta_3z_1+\beta_4z_2+\beta_5z_3+u_1$$
@@ -100,7 +102,7 @@ $$
 2. **Random Sampling** <mark style="background: #ADCCFFA6;">2SLS.2</mark> 
    We have a random sample on $y$, the $x_j$, and the $z_j$.
 
-3. **Rank Condition** <mark style="background: #ADCCFFA6;">2SLS.3</mark>
+3. **Rank Condition (Order Condition)** <mark style="background: #ADCCFFA6;">2SLS.3</mark>
    1.  There are no perfect linear relationships among the instrumental variables
    2. The rank condition for identification holds.
 
@@ -166,6 +168,6 @@ Procedure:
 	1. $e_{1}$ uncorrelated with $\nu_{2}$
 	2. $\mathbb{E}(\nu_{2})=0$
 6. Note that $u_{1}$ uncorrelated with $v_{2}$ $\iff$ $H_{0}:\; \delta_{1}=0$
-7. Estimate the following equation by OLS: $$y_1=\beta_0+\beta_1y_2+\beta_2z_1+\beta_3z_2+\delta_1\hat{v}_2+error$$
+7. Estimate the following equation by OLS: $$y_1=\beta_0+\beta_1y_2+\beta_2z_1+\beta_3z_2+\delta_1\hat{\nu}_2+e_{1}$$
 8. Test $H_{0}:\; \delta_{1}=0$ $\implies$ rejection implies $y_{2}$ is endogenous since $u_{1}$ and $\nu_{2}$ are correlated!
 

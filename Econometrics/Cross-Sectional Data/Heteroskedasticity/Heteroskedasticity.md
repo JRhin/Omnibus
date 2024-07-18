@@ -47,7 +47,7 @@ $$
 1. Consider the [[Multiple Regression Model]]: $$y=\beta_0+\beta_1x_1+\beta_2x_2 + \dots + \beta_{k}x_{k} +u$$
 2. a similar formula for a valid estimation:
 $$
-\widehat{\mathrm{Var}}\left(\widehat{\beta}_{j}\right)=\frac{\sum_{i=1}^{n}\hat{r}_{ij}^{2}\hat{u}_{i}^{2}}{\mathrm{SSR}_{j}^{2}}
+\widehat{\mathrm{Var}}\left(\widehat{\beta}_{j}\right)=\frac{\sum_{i=1}^{n}\hat{r}_{ij}^{2}\hat{u}_{i}^{2}}{\mathrm{SSR}_{j}^{2}}=\frac{\sum_{i=1}^{n}\hat{r}_{ij}^{2}\hat{u}_{i}^{2}}{\text{SST}_j (1 - R_j^2)}
 $$
 3. where:
 	1. $\hat{r}_{ij}$ $\rightarrow$  the $i$-th residual from regressing $x_{j}$ on all other independent variables

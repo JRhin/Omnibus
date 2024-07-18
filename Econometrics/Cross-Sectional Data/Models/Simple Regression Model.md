@@ -59,7 +59,7 @@ Cov(x,u)=\mathbb{E}(xu) =0
 $$
 3. If we have some data $\{x_{i}, y_{i}: i=1,\dots,n\}$ then we can use the **OLS method** to estimate the parameters $\beta_{0}$ and $\beta_{1}$
 
-## Ordinary Least Squares Estimates
+## [[Ordinary Least Squares]] Estimates
 
 **Setup**: 
 Given a random sample of data $\{x_{i}, y_{i}: i=1,\dots,n\}$ we can estimate $\beta_{0}$ and $\beta_{1}$ finding $\hat{\beta}_{0}$ and $\hat{\beta}_{1}$.
