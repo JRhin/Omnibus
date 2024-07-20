@@ -67,7 +67,7 @@ $$
 
 **Solution**:
 We do not need $u_{it}$ to be serially uncorrelated but to follow a random walk since:
-- if $u_{it}$ serially uncorrelated $\implies$ $Cor(\Delta u_{it},u_{i(t+1)})=-0.5$
+- if $u_{it}$ serially uncorrelated $\iff$ $Cor(\Delta u_{it},\Delta u_{i(t+1)})=-0.5$
 - if $u_{it}$ follow a random walk (in time) $\implies$ serially uncorrelated $\Delta u_{it}$
 
 >[!tip] Testing Serial Correlation of the errors

@@ -69,14 +69,14 @@ effects:
 
 ## RE Assumptions
 
-The ideal random effects assumptions include <mark style="background: #ADCCFFA6;">FE.1</mark>, <mark style="background: #ADCCFFA6;">FE.2</mark>, <mark style="background: #ADCCFFA6;">FE.4</mark>, <mark style="background: #ADCCFFA6;">FE.5</mark>, and <mark style="background: #ADCCFFA6;">FE.6</mark>. (FE.7 could be added but it gains us little in practice because we have to estimate $\theta$.) Because we are only subtracting a fraction of the time averages, we can now allow time-constant explanatory variables. So:
-- <mark style="background: #ADCCFFA6;">FE.3</mark> is replaced with <mark style="background: #ADCCFFA6;">RE.1</mark> 
+The ideal random effects assumptions include <mark style="background: #ADCCFFA6;">FE.1</mark>, <mark style="background: #ADCCFFA6;">FE.2</mark>, <mark style="background: #ADCCFFA6;">FE.4</mark>, <mark style="background: #ADCCFFA6;">FE.5</mark>, and <mark style="background: #ADCCFFA6;">FE.6</mark>. (FE.7 could be added but it gains us little in practice because we have to estimate $\theta$.) Because we are only subtracting a fraction of the time averages, we can now **allow time-constant explanatory variables**. So:
+- <mark style="background: #ADCCFFA6;">FE.3</mark> is replaced with <mark style="background: #ADCCFFA6;">RE.3</mark> 
 - <mark style="background: #ADCCFFA6;">FE.4</mark> is extended and replaced with <mark style="background: #ADCCFFA6;">RE.4</mark>
 - <mark style="background: #ADCCFFA6;">FE.5</mark> is extended by <mark style="background: #ADCCFFA6;">RE.5</mark>
 
-1. **No Perfect Collinearity Assumption** <mark style="background: #ADCCFFA6;">RE.1</mark>: There are no perfect linear relationships among the explanatory variables. 
+1. **No Perfect Collinearity Assumption** <mark style="background: #ADCCFFA6;">RE.3</mark>: There are no perfect linear relationships among the explanatory variables. 
 
-2. **Fixed Effect Mean Assumption** <mark style="background: #ADCCFFA6;">RE.2</mark>: The cost of allowing time-constant regressors is that we must add assumptions about how the unobserved effect, $a_i$, is related to the explanatory variables $\implies$ in addition to <mark style="background: #ADCCFFA6;">FE.4</mark>, the expected value of $a_i$ given all explanatory variables is constant: 
+2. **Fixed Effect Mean Assumption** <mark style="background: #ADCCFFA6;">RE.4</mark>: The cost of allowing time-constant regressors is that we must add assumptions about how the unobserved effect, $a_i$, is related to the explanatory variables $\implies$ in addition to <mark style="background: #ADCCFFA6;">FE.4</mark>, the expected value of $a_i$ given all explanatory variables is constant: 
 $$
 E(a_i \mid X_i) = \beta_0.
 $$
@@ -89,7 +89,7 @@ $$
 
 We also need to impose homoskedasticity on $a_i$ as follows:
 
-3. **Fixed Effect Homoskedasticity Assumption** <mark style="background: #ADCCFFA6;">RE.3</mark>: In addition to <mark style="background: #ADCCFFA6;">FE.5</mark>, the variance of $a_i$ given all explanatory variables is constant:
+3. **Fixed Effect Homoskedasticity Assumption** <mark style="background: #ADCCFFA6;">RE.5</mark>: In addition to <mark style="background: #ADCCFFA6;">FE.5</mark>, the variance of $a_i$ given all explanatory variables is constant:
 $$
 \text{Var}(a_i \mid X_i) = \sigma_a^2.
 $$

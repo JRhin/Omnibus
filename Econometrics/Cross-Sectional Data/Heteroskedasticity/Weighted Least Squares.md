@@ -60,7 +60,7 @@ $$
 >[!danger] Heteroskedasticity function misspecification
 >What if $\mathrm{Var}(u|\mathbf{x})\neq\sigma^2h(\mathbf{x})$?
 >
->1. WLS estimates will always be unbiased and consistent since:
+>1. WLS estimates will always be **unbiased** and **consistent** since:
 >   $\mathbb{E}(u|x)=0 \implies  Cor(h(x),u)=0, \; \forall h(\cdot) \implies Cor(x_{j} / \sqrt{ h_{j} }, u_{j} / \sqrt{ h_{j} }), \; \forall h(\cdot)$
 >2. Usual WLS standard errors and test statistics, computed under the assumption $\mathrm{Var}(u|\mathbf{x})=\sigma^2h(\mathbf{x})$ are no longer valid
 >   $\implies$ we can correct this by using **heteroskedastic-robust standard errors** for the statistics after WLS estimation

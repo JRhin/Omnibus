@@ -21,7 +21,7 @@ states that the $q$  variables have zero coefficients: $$\mathrm{H}_{0}\colon\be
 	- $SSR_{ur}$ $\rightarrow$ sum of squared residuals from the unrestricted model
 	- $q$ $\rightarrow$ difference in degrees of freedom between the restricted and unrestricted models.
 	- $F$ is always $\geq 0$
-	- $\mathrm{SSR}_r-\mathrm{SSR}_{ur})/q$ $\rightarrow$ difference in the SSRs divided by $q$
+	- $(\mathrm{SSR}_r-\mathrm{SSR}_{ur})/q$ $\rightarrow$ difference in the SSRs divided by $q$
 	- $\mathrm{SSR}_{ur}/(n-k-1)$ $\rightarrow$ unbiased estimator of $\sigma^2=Var(u)$
 
 7. We will reject $H_{0}$ in favor of $H_{1}$ when $F$ is sufficiently large: $$F>c$$

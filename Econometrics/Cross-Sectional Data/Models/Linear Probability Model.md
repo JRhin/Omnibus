@@ -15,7 +15,7 @@
 >For certain combinations of values for the independent variables, we can get predictions either $<0$ or $>1$
 >
 >**Solution**:
->Predicted probabilities outside the unit interval are a little troubling when we want to make predictions (simply thresholding the predictions!)
+>Predicted probabilities outside the unit interval are a little troubling when we want to make predictions (simply **threshold** the predictions!)
 
 >[!danger] Problem 2: linearity in the parameters
 >**Problem**:

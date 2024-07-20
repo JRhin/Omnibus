@@ -73,7 +73,7 @@ the omitted variable [[Endogeneity]].
   - $\sigma_{x}^2$ $\rightarrow$ with sample variance of $x$, i.e. $SST_{x}$
   - $\sigma^2$ $\rightarrow$ using the **IV residuals** $\hat{u}_{i}=y_{i}- \hat{\beta}_{0}-\hat{\beta}_{1} x_{i}$ we can estimate $\sigma^2$ with: $$\hat{\sigma}^2=\frac{1}{n-2} \sum_{i}\hat{u}_{i}^2$$
   - $\rho_{x,z}^2$ $\rightarrow$ with $R_{x,z}^2$ obtained from regressing $x_{i}$ on $z_{i}$
-- the estimate of the asymptotic variance will be : $$se(\hat{\beta}_{1})= \frac{\hat{\sigma}^2}{SST_{x} \cdot R_{x,z}^2 }$$ 
+- the estimate of the **asymptotic variance** will be : $$se(\hat{\beta}_{1})= \frac{\hat{\sigma}^2}{SST_{x} \cdot R_{x,z}^2 }$$ 
 - the **asymptotic standard error** will be: $$se(\hat{\beta}_{1})= \frac{\hat{\sigma}}{\sqrt{SST_{x}} \cdot \sqrt{ R_{x,z}^2 }}$$
 
 >[!tip] OLS variance vs IV variance

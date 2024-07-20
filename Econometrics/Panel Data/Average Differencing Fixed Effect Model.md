@@ -102,8 +102,8 @@ The $R^2$ inferred from the fixed effect model equation is interpreted as the am
 
 **When $T>2$**:
 - Similarities:
-	- both are unbiased under Assumptions <mark style="background: #ADCCFFA6;">FE.1</mark> through <mark style="background: #ADCCFFA6;">FE.4</mark>
-	- both are consistent
+	- both are **unbiased** under Assumptions <mark style="background: #ADCCFFA6;">FE.1</mark> through <mark style="background: #ADCCFFA6;">FE.4</mark>
+	- both are **consistent**
 - Differences:
 	- if $u_{it}$ (idiosyncratic errors) serially uncorrelated $\implies$ FE is used more than FD
 	- if $u_{it}$ follow a random walk $\implies$ $\Delta u_{it}$ serially uncorrelated $\implies$ FD is better
