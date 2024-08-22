@@ -1,4 +1,4 @@
-They are **probabilistic models** that define a distribution $p(z)$ over a latent variable $z$, i.e. a nonlinear mapping from latent variables $z$ to input data $x$.
+Diffusion models are **probabilistic models** that define a distribution $p(z)$ over a latent variable $z$, i.e. a nonlinear mapping from latent variables $z$ to input data $x$.
 
 **IDEA:**
 1. Corrupt a training image with a multi-step noise process
@@ -6,14 +6,14 @@ They are **probabilistic models** that define a distribution $p(z)$ over a laten
 3. Use a Neural Network to invert this process (for each noise step) 
 4. After training we can generate new images starting from a sample from a standard Gaussian
 
-Main similarities:
+Main similarities with other generative models:
 - like [[Normalizing Flow]] they define nonlinear mapping between variables of the same dimensions $\mathbf{z}$ and $\mathbf{x}$ (differently from variational autoencoders and GANs)
 - like [[Variational Autoencoder]] they approximate data likelihood using an ELBO (likelihood lower-bound) based on an encoder
 
-Main differences:
+Main differences with other generative models:
 - the mapping in the encoding part is $\mathbf{x} \rightarrow \mathbf{z}$, while in normalizing flows is $\mathbf{z} \rightarrow \mathbf{x}$
-- the encoder is predetermined (is the noise process), while in VAEs the encoder is parametrized and trainable
-- the goal is to only learn the decoder (inverse of the noise process)
+- the *encoder* is predetermined (is the noise process), while in VAEs the encoder is parametrized and trainable
+- the goal is to ==only learn the decoder== (inverse of the noise process)
 
 ## Forward Encoder
 
@@ -38,7 +38,7 @@ $$
 \end{cases}
 $$
 >[!warning] Obs 1 
->==Convergence to the standard Gaussian noise== thanks to $\sqrt{1-\beta_{t}}$ and $\sqrt{\beta_{t}}$ that ensure:
+>==Convergence to the standard Gaussian noise== $\iff$ correct choice $\sqrt{1-\beta_{t}}$ and $\sqrt{\beta_{t}}$ that ensure:
 >- the mean of $q(\mathbf{z}_t|\mathbf{z}_{{t-1}})$ is closer to zero than the mean of $q(\mathbf{z}_{t-1}|\mathbf{z}_{{t-2}})$ 
 >- the variance of  $q(\mathbf{z}_t|\mathbf{z}_{{t-1}})$ is closer to $I$ than the variance of $q(\mathbf{z}_{t-1}|\mathbf{z}_{{t-2}})$
 
@@ -62,19 +62,19 @@ $$
 $$
 \mathbf{z}_{t}=\sqrt{\alpha_{t}}\mathbf{x}+\sqrt{1-\alpha_{t}}\epsilon_{t}
 $$
-4. After $T \rightarrow \infty$ step the image becomes Gaussian noise, no more depending on $\mathbf{x}$:
+4. After $T \rightarrow \infty$ steps the image becomes Gaussian noise, no more depending on $\mathbf{x}$:
 $$
 q(\mathbf{z}_{T})=\mathcal{N}(\mathbf{z}_{T}|\mathbf{0},\mathbf{I})
 $$
-### Conditional distributions for decoding
+### Conditional reverse distributions before introducing decoding
 
-**Goal:** learn to undo the noise process we would like to find the reverse process and apply it
+**Goal:** learn to undo the noise process $\implies$ find the reverse process and apply it
 
-1. Consider the reverse of $q(\mathbf{z}_t|\mathbf{z}_{{t-1}})$ with **[[Bayes' theorem]]**:
+1. Consider the reverse of $q(\mathbf{z}_t|\mathbf{z}_{{t-1}})$ and use the **[[Bayes' theorem]]**:
    $$
 q(\mathbf{z}_{t-1}|\mathbf{z}_t)=\frac{q(\mathbf{z}_t|\mathbf{z}_{t-1})q(\mathbf{z}_{t-1})}{q(\mathbf{z}_t)}
 $$
-2. Marginalize (==intractable== since we don't know $p(x)$ i.e., distribution of noiseless/starting image):
+2. Try to **marginalize** (but it is ==intractable== since we don't know $p(x)$ i.e., distribution of noiseless/starting image):
    $$
 q(\mathbf{z}_{t-1})=\int{q(\mathbf{z}_{t-1}|\mathbf{x})}p(\mathbf{x}) \mathrm{d}\mathbf{x}
 $$
@@ -86,8 +86,8 @@ $$
 4. Consider that:
 
 
-   **a)** Markov property in the forward process:
-    $$ \to q(\mathbf{z}_{t}|\mathbf{z}_{t-1},\mathbf{x})=q(\mathbf{z}_{t}|\mathbf{z}_{t-1})= \mathcal{N}(\mathbf{z}_1|\sqrt{1-\beta_1}\mathbf{x},\beta_1\mathbf{I})
+   **a)** by the **Markov property** of the forward process:
+    $$ \to q(\mathbf{z}_{t}|\mathbf{z}_{t-1},\mathbf{x})=q(\mathbf{z}_{t}|\mathbf{z}_{t-1})= \mathcal{N}(\mathbf{z}_t|\sqrt{1-\beta_t}\mathbf{x},\beta_t\mathbf{I})
     $$
    **b)** by definition of diffusion kernel 
    $$
@@ -112,7 +112,7 @@ $$
 
 **Goal:** 
 - forward encoder $\to$ sequence of Gaussians $q(\mathbf{z}_{t}|\mathbf{z}_{t-1})$
-- reverse decoder $\to$ invert the encoding process getting a sequence of reversed    conditionals $q(\mathbf{z}_{t-1}|\mathbf{z}_{t})$
+- reverse decoder $\to$ invert the encoding process getting a sequence of reversed conditionals $q(\mathbf{z}_{t-1}|\mathbf{z}_{t})$
 
 **Problem:** 
 The above conditionals are intractable distributions
@@ -188,13 +188,13 @@ $$
 &=\mathbb{E}_{q}\left[\quad\underbrace{\ln p(\mathbf{z}_{T})}_{\text{indep. from w}}\quad+\underbrace{\sum_{t=2}^{T}\ln\frac{p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})}{q(\mathbf{z}_{t}|\mathbf{z}_{t-1},\mathbf{x})}}_{\text{consistency terms}} \quad\underbrace{-\ln q(\mathbf{z}_{1}|\mathbf{x})}_{\text{indep. from w}} \quad + \underbrace{\ln p(\mathbf{x}|\mathbf{z}_{1},\mathbf{w}) }_{\text{reconstruction term}}\quad\right] 
 \end{align}
 $$
-3. Reconstruction term can be evaluated by **[[Monte Carlo]]** estimate:
+3. *Reconstruction term* can be evaluated by **[[Monte Carlo]]** estimate:
 $$
 \mathbb{E}_{q}\left[\ln p(\mathbf{x}|\mathbf{z}_{1},\mathbf{w})\right]\simeq\sum_{l=1}^{L}\ln p(\mathbf{x}|\mathbf{z}_{1}^{(l)},\mathbf{w})
 $$
-4. For the consistency terms we could sample from $q(\mathbf{z}_{t-1}|\mathbf{x})$ (Gaussian distro) and obtain the sample $\mathbf{z}_{t}$ by using:
+4. For the *consistency terms* we could sample from $q(\mathbf{z}_{t-1}|\mathbf{x})$ (Gaussian distro) and obtain the sample $\mathbf{z}_{t}$ by using:
 $$
-q(\mathbf{z}_{t}|\mathbf{z}_{t-1})=\mathcal{N}(\mathbf{z}_{t}|\sqrt{1-\beta_{t}}\mathbf{z}_{t-1},\beta_{t}\mathbf{I}
+q(\mathbf{z}_{t}|\mathbf{z}_{t-1})=\mathcal{N}(\mathbf{z}_{t}|\sqrt{1-\beta_{t}}\mathbf{z}_{t-1},\beta_{t}\mathbf{I})
 $$
 
 >[!warning] Problem: 
@@ -209,26 +209,26 @@ Write the ELBO in terms of KL divergences $\to$ expressible in closed form
 $$
 q(\mathbf{z}_t|\mathbf{z}_{t-1},\mathbf{x})=\frac{q(\mathbf{z}_{t-1}|\mathbf{z}_t,\mathbf{x})q(\mathbf{z}_t|\mathbf{x})}{q(\mathbf{z}_{t-1}|\mathbf{x})}
 $$
-2. We can rewrite the entire consistency term:
+2. We can rewrite the entire consistency term as:
 $$
 \ln\frac{p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})}{q(\mathbf{z}_{t}|\mathbf{z}_{t-1},\mathbf{x})}=\ln\frac{p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})}{q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})}+\underbrace{\ln\frac{q(\mathbf{z}_{t-1}|\mathbf{x})}{q(\mathbf{z}_{t}|\mathbf{x})}}_{\text{indep. from w}}
 $$
 3. Plugging-in the above considerations we get:
 $$
-\mathcal{L}(\mathbf{w})=\mathbb{E}_{q}\left[\sum_{t=2}^{T}\ln\frac{p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})}{q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})}+\ln p(\mathbf{x}|\mathbf{z}_{1},\mathbf{w})\right]
+\mathcal{L}(\mathbf{w})=\mathbb{E}_{q}\left[\underbrace{\sum_{t=2}^{T}\ln\frac{p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})}{q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})}}_{\text{consistency terms}}+\underbrace{\ln p(\mathbf{x}|\mathbf{z}_{1},\mathbf{w})}_{\text{reconstruction term}}\right]
 $$
 4. When applying the expectation as an integral we get that:
    - the reconstruction term only depends on $\mathbf{z}_{1}$ $\to$ all conditional distributions integrate to 1 leaving only the integral over $\mathbf{z}_{1}$.
    - for the consistency terms:
 	   - we pull out the sum (linearity of the integral) and we get the sum of $T-2$ integrals
 	   - each integral involves only two adjacent latent variables $\mathbf{z}_{t-1}$ and $\mathbf{z}_{t}$
-5. Finally:   
+5. In the integral form, we write the above expected value as:   
 $$\begin{aligned}
    \mathcal{L}(\mathbf{w})=&\underbrace{\int q(\mathbf{z}_1|\mathbf{x})\ln p(\mathbf{x}|\mathbf{z}_1,\mathbf{w})\:\mathrm{d}\mathbf{z}_1}_{\text{reconstruction term}} -\underbrace{\sum_{t=2}^T\int\mathrm{KL}(q(\mathbf{z}_{t-1}|\mathbf{z}_t,\mathbf{x})\|p(\mathbf{z}_{t-1}|\mathbf{z}_t,\mathbf{w}))q(\mathbf{z}_t|\mathbf{x})\:\mathrm{d}\mathbf{z}_t}_{\text{consistency terms}}\end{aligned}
 $$
 >[!tip] In practice
->1. reconstruction term $\implies$ can be trained by using the MC sampling estimate
->2. consistency terms $\implies$ expressed in closed form for gaussian distros:
+>1. reconstruction term $\implies$ can be trained by using the **MC sampling estimate**
+>2. consistency terms $\implies$ expressed in closed form for gaussian distributions (closed-form **KL divergence for Gaussian distributions**), i.e.:
 >$$
 \begin{align}
 q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})&=\mathcal{N}\left(\mathbf{z}_{t-1}|\mathbf{m}_{t}(\mathbf{x},\mathbf{z}_{t}),\sigma_{t}^{2}\mathbf{I}\right)\\ \\
@@ -238,9 +238,58 @@ p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})&=\mathcal{N}(\mathbf{z}_{t-1}|\bol
 \end{align}$$
 
 >[!warning] Obs
->Considering the previous box, we minime a **squared error** (between the mean of the true distribution and the mean of the learned distribution) because there is a minus sign in front of the KL divergence terms in the ELBO.
+>Considering the previous box, we minimize a **squared error** (between the mean of the true distribution and the mean of the learned distribution) because there is a minus sign in front of the KL divergence terms in the ELBO.
+
+##### Predicting the noise instead of the denoised image
+
+**Idea**:
+A simple modification to the neural network used at each step of the denoising process (decoder)(usually a [[U-Net]]) seems to improve the performances of a diffusion model:
+- before $\implies$ the NN was used to predict the denoised image at each step of the Markov chain
+- now $\implies$ it predicts the **total noise** that was added to the original image at that step
+
+Now, at each decoding step $t$ the neural network predicts:
+
+$$
+\mathbf{x}=\frac{1}{\sqrt{\alpha_t}}\mathbf{z}_t-\frac{\sqrt{1-\alpha_t}}{\sqrt{\alpha_t}}\epsilon_t
+$$
+**Implications**:
+1. We newly define the function for the mean of posterior conditional distribution $q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})$:
+$$
+\mathbf{m}_t(\mathbf{x},\mathbf{z}_t)=\frac{1}{\sqrt{1-\beta_t}}\left\{\mathbf{z}_t-\frac{\beta_t}{\sqrt{1-\alpha_t}}\boldsymbol{\epsilon}_t\right\}
+$$
+2. We can write the new neural network as a function $\mathbf{g}(\mathbf{z}_{t},\mathbf{w},t)$ related to the old neural network $\boldsymbol{\mu}(\mathbf{z}_{t},\mathbf{w},t)$ in the following way:
+$$
+\boldsymbol{\mu}(\mathbf{z}_{t},\mathbf{w},t)=\frac{1}{\sqrt{1-\beta_{t}}}\left\{\mathbf{z}_{t}-\frac{\beta_{t}}{\sqrt{1-\alpha_{t}}}\mathbf{g}(\mathbf{z}_{t},\mathbf{w},t)\right\}
+$$
+3. Now is also possible to derive the new KL divergence:
+$$
+\begin{aligned}
+&\mathrm{KL}(q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})\|p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})) \\
+&=\frac{\beta_t}{2(1-\alpha_t)(1-\beta_t)}\left\|\mathbf{g}(\mathbf{z}_t,\mathbf{w},t)-\boldsymbol{\epsilon}_t\right\|^2+\mathrm{const} \\
+&=\frac{\beta_{t}}{2(1-\alpha_{t})(1-\beta_{t})}\left\|\mathbf{g}(\sqrt{\alpha_{t}}\mathbf{x}+\sqrt{1-\alpha_{t}}\epsilon_{t},\mathbf{w},t)-\epsilon_{t}\right\|^{2}+\mathrm{const}
+\end{aligned}
+$$
+4. From two chapters above we know the approximation of the reconstruction term in the ELBO and, having the new NN, the single term in the sum is equal to the KL divergence above (for $t=1$):
+$$
+\begin{align}
+\ln p(\mathbf{x}|\mathbf{z}_1,\mathbf{w})&=-\frac{1}{2\beta_1}\|\mathbf{x}-\boldsymbol{\mu}(\mathbf{z}_1,\mathbf{w},1)\|^2+\mathrm{const}\\ \\
+&=-\frac{1}{2(1-\beta_t)}\|\mathbf{g}(\mathbf{z}_1,\mathbf{w},1)-\boldsymbol{\epsilon}_1\|^2+\mathrm{const}
+\end{align}
+$$
+5. Omitting the coefficient $\frac{\beta_{t}}{2(1-\alpha_{t})(1-\beta_{t})}$ is now possible to get the new ELBO for this setup:
+$$
+\mathcal{L}(\mathbf{w})=-\sum_{t=1}^T\left\|\mathbf{g}(\sqrt{\alpha_t}\mathbf{x}+\sqrt{1-\alpha_t}\boldsymbol{\epsilon}_t,\mathbf{w},t)-\boldsymbol{\epsilon}_t\right\|^2
+$$
+
+**Interpretation of the new loss**:
+Given step $t$ in the Markov chain and training data point $x$, we:
+1. sample a noise vector $\epsilon_{t}$ 
+2. create the corresponding noisy latent vector $z_{t}$ for that step
+3. the loss function is then the squared difference between the predicted noise and the actual noise.
+
+>[!warning] Mini-batching over time
+>For each data point we randomly select a step $t$ along the Markov chain, rather than evaluate the error for every term in the summation over $t$ (sort of stochastic gradient descent where we do mini-batching also over time)!
 
 
-
-
+## Generation
 
