@@ -293,3 +293,32 @@ Given step $t$ in the Markov chain and training data point $x$, we:
 
 ## Generation
 
+**Idea**:
+Once the network has been trained for the decoding process, we can generate new samples in the data space.
+
+**Procedure**:
+1. Sample from the gaussian distribution $p(\mathbf{z}_{T})$
+2. Denoise successively through each step of the Markov chain: 
+	1. take a denoised sample $\mathbf{z}_{t}$ at timestep $t$
+	2. generate a sample $\mathbf{z}_{t-1}$ in three steps:
+		1. evaluate the output of the neural network given by
+		2. evaluate $\boldsymbol{\mu}(\mathbf{z}_t,\mathbf{w},t)$ using: $$\begin{align}
+\mathrm{KL}(q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})\|p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})) = &\frac{\beta_{t}}{2(1-\alpha_{t})(1-\beta_{t})}\left\|\mathbf{g}(\sqrt{\alpha_{t}}\mathbf{x}+\sqrt{1-\alpha_{t}}\epsilon_{t},\mathbf{w},t)-\epsilon_{t}\right\|^{2} \\ \\
+
+&+\mathrm{const}
+\end{align}$$
+		3. generate a sample $\mathbf{z}_{t-1}$ from $p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})=\mathcal{N}(\mathbf{z}_{t-1}|\boldsymbol{\mu}(\mathbf{z}_{t},\mathbf{w},t),\beta_{t}\mathbf{I})$ s.t.: 
+		   $$\mathbf{z}_{t-1}=\boldsymbol{\mu}(\mathbf{z}_t,\mathbf{w},t)+\sqrt{\beta_t}\boldsymbol{\epsilon}$$
+
+>[!danger] Speed-up generation
+>Main issue when generating data with diffusion models is represented by the multiple inference sequential passes through the trained network.
+>Possible solutions:
+>- convert the denoising process to a differential equation over continuous time and then use alternative efficient discretization methods to solve the equation efficiently
+>- relax the Markovian assumption on the noise process while retaining the same objective function for training $\implies$ [[Denoising Diffusion Implicit Model]].
+
+
+### Training vs generation summary
+
+![[Pasted image 20240902230348.png]]
+
+![[Pasted image 20240902230407.png]]
