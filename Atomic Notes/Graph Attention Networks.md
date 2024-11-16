@@ -11,7 +11,7 @@ Where $\alpha_{ij}$ is the [[Softmax|softmax]] of $e_{ij}$:
 $$
 \alpha_{ij}=\text{softmax}_j(e_{ij})=\frac{\exp(e_{ij})}{\sum\limits_{k\in\mathcal{N}_i}\exp(e_{ik})}
 $$
-The GAT uses as a [[Graph Shift Operator|shift operator]] $S=\{\alpha_{ij}\}^N_{i,j=1}$.
+The GAT uses as a [[Atomic Notes/Graph Shift Operator|shift operator]] $S=\{\alpha_{ij}\}^N_{i,j=1}$.
 ## Self-Attention
 Having input $X=\{x_1,x_2,\dots,x_N\}$ with $x_i\in\mathbb{R}^F$, then the **self-attention** $e_{ij}$ is defined as:
 $$

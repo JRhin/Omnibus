@@ -29,22 +29,11 @@ $$
 &= \frac{1}{\mu_0}E_0B_0\sin^2(kz-\omega t)\hat{\mathbf{k}}
 \end{align}
 $$
-- if the receiver of the wave is oriented with its sensitive area $A$ perpendicular the $z$ we get the power entering the receiver of:
-$$
-\begin{align}
-P=SA&=\frac{1}{\mu_0}E_0B_0A\sin^2(kz-\omega t) \\
+- if the receiver of the wave is oriented with its sensitive area $A$ perpendicular the $z$ we get the power entering the receiver of: $$\begin{align}P=SA&=\frac{1}{\mu_0}E_0B_0A\sin^2(kz-\omega t) \\
 \implies P &=\frac{1}{\mu_{0}c}E_{0}^{2}A\sin^{2}(kz-\omega t)
-\end{align}
-
-$$
-- the average power in a period of time $T$ is:
-$$
-P_{\mathrm{av}}=\frac{1}{T}\int_0^TPdt
-$$
-- the corresponding intensity is:
-$$
-I=\frac{P_\mathrm{av}}{A}=\frac{1}{2\mu_0c}E_0^2
-$$
+\end{align}$$
+- the average power in a period of time $T$ is:$$P_{\mathrm{av}}=\frac{1}{T}\int_0^TPdt$$
+- the corresponding intensity is:$$I=\frac{P_\mathrm{av}}{A}=\frac{1}{2\mu_0c}E_0^2$$
 
 >[!danger] Intensity features
 >1. the intensity is proportional to the square of the amplitude $overrightarrow{\mathrm{E}}_{0}$

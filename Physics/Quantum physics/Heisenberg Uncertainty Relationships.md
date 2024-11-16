@@ -21,7 +21,7 @@
 #### 1. Location-wavelength uncertainty relationship
 
 **Setup**:
-1. All real waves can be represented as wave packets $\implies$ disturbances that are localized to a finite region of space
+1. All real waves can be represented as [[Wave packets]] $\implies$ disturbances that are localized to a finite region of space
 2. disturbance is well localized to a small region of space of length $\Delta x$
 3. measurement of the wavelength is therefore subject to a small uncertainty $\Delta\lambda \sim \epsilon\lambda$ that is a small fraction of $\lambda$
 4. let's examine the product of the size of the wave packet and the uncertainty in the wavelength:

@@ -7,7 +7,6 @@ Here we list some of the main reasons to include other independent variables:
 2. Adding more factors useful for explaining $y$ $\implies$ *explaining more variation* in $y$;
 3. Controlling for more variables potentially correlated with other independent variable $\implies$ *extrapolating this correlation from the error term* (which otherwise would be correlated with some $x$, causing the OLS estimators to be biased);
 4. Multiple regression analysis can incorporate more general *functional form* relationships, i.e. is way *more flexible*.
-
 #### Setup with 2 variables:
 
 - __Input__ : $y$, $x_{1}$ and $x_{2}$, three variables representing some population

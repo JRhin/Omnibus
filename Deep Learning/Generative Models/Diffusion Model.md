@@ -302,13 +302,9 @@ Once the network has been trained for the decoding process, we can generate new 
 	1. take a denoised sample $\mathbf{z}_{t}$ at timestep $t$
 	2. generate a sample $\mathbf{z}_{t-1}$ in three steps:
 		1. evaluate the output of the neural network given by
-		2. evaluate $\boldsymbol{\mu}(\mathbf{z}_t,\mathbf{w},t)$ using: $$\begin{align}
-\mathrm{KL}(q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})\|p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})) = &\frac{\beta_{t}}{2(1-\alpha_{t})(1-\beta_{t})}\left\|\mathbf{g}(\sqrt{\alpha_{t}}\mathbf{x}+\sqrt{1-\alpha_{t}}\epsilon_{t},\mathbf{w},t)-\epsilon_{t}\right\|^{2} \\ \\
-
-&+\mathrm{const}
-\end{align}$$
+		2. evaluate $\boldsymbol{\mu}(\mathbf{z}_t,\mathbf{w},t)$ using: $$\begin{align}\mathrm{KL}(q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})\|p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})) = &\frac{\beta_{t}}{2(1-\alpha_{t})(1-\beta_{t})}\left\|\mathbf{g}(\sqrt{\alpha_{t}}\mathbf{x}+\sqrt{1-\alpha_{t}}\epsilon_{t},\mathbf{w},t)-\epsilon_{t}\right\|^{2} \\ \\ &+\mathrm{const}\end{align}$$
 		3. generate a sample $\mathbf{z}_{t-1}$ from $p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})=\mathcal{N}(\mathbf{z}_{t-1}|\boldsymbol{\mu}(\mathbf{z}_{t},\mathbf{w},t),\beta_{t}\mathbf{I})$ s.t.: 
-		   $$\mathbf{z}_{t-1}=\boldsymbol{\mu}(\mathbf{z}_t,\mathbf{w},t)+\sqrt{\beta_t}\boldsymbol{\epsilon}$$
+$$\mathbf{z}_{t-1}=\boldsymbol{\mu}(\mathbf{z}_t,\mathbf{w},t)+\sqrt{\beta_t}\boldsymbol{\epsilon}$$
 
 >[!danger] Speed-up generation
 >Main issue when generating data with diffusion models is represented by the multiple inference sequential passes through the trained network.

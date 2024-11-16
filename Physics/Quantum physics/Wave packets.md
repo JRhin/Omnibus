@@ -29,4 +29,3 @@ y(x)=2A\cos\left(\frac{\pi x}{\lambda_1}-\frac{\pi x}{\lambda_2}\right)\cos\left
 $$
 5. Note that for all four of the above wave patterns, the disturbance seems to have a wavelength of about 10, equal to the central wavelength of the range of values of the functions we constructed
 6. We can therefore regard these functions as a cosine wave with a wavelength of 10 that is shaped or modulated by the other cosine waves included in the function
-

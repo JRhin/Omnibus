@@ -1,7 +1,7 @@
 ---
 tags: []
 ---
-Given a [[Graph Shift Operator]] $S=UAU^H$, the graph Fourier transform $\mathcal{GFT}(\cdot)$ is defined as:
+Given a [[Atomic Notes/Graph Shift Operator]] $S=UAU^H$, the graph Fourier transform $\mathcal{GFT}(\cdot)$ is defined as:
 $$
 \mathcal{GFT}(x)=U^Hx
 $$

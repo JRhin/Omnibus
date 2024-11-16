@@ -2,7 +2,7 @@
 tags: []
 ---
 A Graph Convolutional Filter is defined by:
-- A [[Graph Shift Operator]] $S$.
+- A [[Atomic Notes/Graph Shift Operator]] $S$.
 - A series of coefficients $h_k$.
 Mathematically it's a polynomial (series) on $S$:
 $$
@@ -40,7 +40,7 @@ $$
 \tilde{y}=\sum^K_{k=0}h_k\Lambda^k\tilde{x}
 $$
 ## Graph Filter Design
-We have a desired graph frequency response obtained by a [[Graph Filter]] $\sigma$ for which we would like that:
+We have a desired graph frequency response obtained by a [[Atomic Notes/Graph Filter]] $\sigma$ for which we would like that:
 $$
 \tilde{h}(\lambda_i)\simeq \sigma_i \qquad i=1,\dots,N
 $$
