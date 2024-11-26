@@ -20,10 +20,10 @@ tags:
 		- the quadratic has a **parabolic shape**
 		- there is always a positive value of $x$ where the effect of $x$ on $y$ is zero: $$x^*=|\hat{\beta}_1/(2\hat{\beta}_2)|$$
 	2. When $\hat{\beta}_{1}<0$ $\hat{\beta}_{2}>0$
-		- often the case when the model has a dependent variable in logarthmic form and an explanatory variable entering as a quadratic
+		- often the case when the model has a dependent variable in logarithmic form and an explanatory variable entering as a quadratic
 		- the quadratic form has a **U-shape** $\implies$ captures an increasing effect of $x$ on $y$
 	3. When $sign(\hat{\beta}_{1})= sign(\hat{\beta}_{2})$
-		- If the coefficients on the level and squared terms have the same sign (either both positive or both negative) and the explanatory variable is necessarily nonnegative, there is no turning point for values $x > 0$. 
+		- If the coefficients on the level and squared terms have the same sign (either both positive or both negative) and the explanatory variable is necessarily non negative, there is no turning point for values $x > 0$. 
 		- When $\beta_1$ and $\beta_2$ are both positive, the smallest expected value of $y$ is at $x = 0$, and increases in $x$ always have a positive and increasing effect on $y$. 
 		- Conversely, if $\beta_1$ and $\beta_2$ are both negative, the largest expected value of $y$ is at $x = 0$, and increases in $x$ have a negative effect on $y$, with the magnitude of the effect increasing as $x$ gets larger. 
 		- The general formula for the turning point of any quadratic is $x^* = -\frac{\hat{\beta}_1}{2\hat{\beta}_2}$, which results in a positive value if $\hat{\beta}_1$ and $\hat{\beta}_2$ have opposite signs, and a negative value when $\hat{\beta}_1$ and $\hat{\beta}_2$ have the same sign.
