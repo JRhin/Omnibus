@@ -1,4 +1,11 @@
-
+---
+title: Graph Algebraic Operators
+created: 2024-11-25
+authors:
+  - Engrima
+tags:
+  - Graph_Signal_Processing
+---
 Consider a [[Graph]] $\mathcal{G(V,E)}$, where:
 - $V=|\mathcal{V|}$ $\implies$ number of nodes
 - $E = |\mathcal{E}|$ $\implies$ number of edges

@@ -1,3 +1,12 @@
+---
+title: Graph Neural Network
+created: 2024-11-25
+authors:
+  - Engrima
+tags:
+  - Deep_Learning
+  - Graph_Models
+---
 A GNN, or better, a **Multiple-output multiple-input (MIMO) GNN**, generalizes the idea of [[Deep Learning/Graph Models/Graph Perceptron|Graph Perceptron]] by:
 1. stacking $L$ different [[Graph Perceptron]] layers
 2. each [[Graph Signal]] observation is given by a matric $\mathbf{X}\in \mathbb{R}^{V \times F}$, where:

@@ -1,3 +1,12 @@
+---
+title: Diffusion Model
+created: 2024-11-25
+authors:
+  - Engrima
+tags:
+  - Deep_Learning
+  - Generative_Models
+---
 Diffusion models are **probabilistic models** that define a distribution $p(z)$ over a latent variable $z$, i.e. a nonlinear mapping from latent variables $z$ to input data $x$.
 
 **IDEA:**

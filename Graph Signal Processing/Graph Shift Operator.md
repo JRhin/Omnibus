@@ -1,4 +1,11 @@
-
+---
+title: Graph Shift Operator
+created: 2024-11-25
+authors:
+  - Engrima
+tags:
+  - Graph_Signal_Processing
+---
 The GSO is linear map $S:\mathbb{R}^V\rightarrow \mathbb{R}^V$, that causes the shift of the [[Graph Signal]] $\mathbf{x}\in \mathbb{R}^V$, i.e. the signal diffuses over the nodes of the graph according to the diffusion operator $S$.
 The operator itself, $S \in R^{V \times V}$, indeed represents the structure of the related [[Graph]] and is such that:
 $$

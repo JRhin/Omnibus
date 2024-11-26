@@ -1,4 +1,13 @@
-
+---
+title: Heteroskedasticity
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Heteroskedasticity
+---
 - **Homoskedasticity assumption**:
   - the variance of the unobserved error, $u$, *conditional on the explanatory variables*, is **constant**, i.e. given the [[Multiple Regression Model]] $y=\beta_0+\beta_1x_1+\beta_2x_2+...+\beta_kx_k+u$  we have that:
 $$

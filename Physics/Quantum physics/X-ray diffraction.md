@@ -1,4 +1,12 @@
-
+---
+title: X-ray diffraction
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Physics
+  - Quantum_physics
+---
 ### Diffraction grating
 
 ![[Pasted image 20240822173657.png|250]]

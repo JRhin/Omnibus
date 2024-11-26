@@ -1,4 +1,12 @@
-
+---
+title: Interference and diffraction
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Physics
+  - Quantum_physics
+---
 ### Principle of superposition
 
 Allows two waves to meet at a point

@@ -1,3 +1,13 @@
+---
+title: Multiple Regression Model
+created: 2024-11-25
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Models
+---
 #### Idea:
 We add more independent variables $x_{i}$ to extend our [[Simple Regression Model]].
 

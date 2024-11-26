@@ -1,3 +1,13 @@
+---
+title: Scaling
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Advanced_Relations
+---
 When variables are rescaled, the coefficients, standard errors, confidence intervals, t statistics, and F
 statistics change in ways that preserve all measured effects and testing outcomes.
 

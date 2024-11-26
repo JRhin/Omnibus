@@ -1,4 +1,12 @@
-
+---
+title: Electromagnetic wave
+created: 2024-11-25
+authors:
+  - Engrima
+tags:
+  - Physics
+  - Quantum_physics
+---
 **Origin of the electromagnetic wave**:
 - Two main components:
 	1. distribution of electric charges $\implies$ electric field $\overrightarrow{\mathrm{E}}$

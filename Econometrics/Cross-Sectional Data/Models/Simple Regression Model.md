@@ -1,3 +1,13 @@
+---
+title: Simple Regression Model
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Models
+---
 #### General setup:
 
 - __Input__ : $y$ and $x$, two variables representing some population

@@ -1,3 +1,13 @@
+---
+title: Bias-Variance Trade-off
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - OLS
+---
 Bias and Variance are two measures of the estimation error resulting from fitting a model to a certain dataset. In general we cannot reduce both these quantities and the *choice of including or not a feature/independent variable in model* is led by this trade-off
 #### Including irrelevant variables
 

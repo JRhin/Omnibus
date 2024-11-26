@@ -1,3 +1,12 @@
+---
+title: Pooled Cross-Sectional Data
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Pooled_Cross-Sectional_Data
+---
 This type of data comes from the **independently pooling** cross-sectional data, by sampling randomly from a large population *at different points in time*.
 
 >[!info] Example

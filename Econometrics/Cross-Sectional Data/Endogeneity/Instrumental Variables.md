@@ -1,3 +1,13 @@
+---
+title: Instrumental Variables
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Endogeneity
+---
 ## IV for the Simple Regression
 #### Idea behind IV
 Instrumental Variables approach **leaves the unobserved variable in the error term**, but rather than

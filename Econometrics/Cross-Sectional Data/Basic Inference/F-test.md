@@ -1,3 +1,13 @@
+---
+title: F-test
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Basic_Inference
+---
 **Problem**:
 - t statistic for the [[T-test]] associated with any OLS coefficient can be used to test whether the corresponding unknown parameter in the population is equal to any given constant
 - Now, we wish to **test multiple hypotheses about the underlying parameters** $\beta_{0},\dots,\beta_{k}$

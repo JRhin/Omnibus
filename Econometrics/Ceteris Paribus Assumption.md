@@ -1,3 +1,11 @@
+---
+title: Ceteris Paribus Assumption
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+---
 The notion of ceteris paribus plays an important role in causal analysis, and consists in considering all the other (relevant) factors fixed/constant when focusing on a particular variable, during a step of our analysis.
 
 >[!tip] Example

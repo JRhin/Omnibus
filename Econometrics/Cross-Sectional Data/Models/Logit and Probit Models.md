@@ -1,4 +1,13 @@
-
+---
+title: Logit and Probit Models
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Models
+---
 **Setup**:
 We have a dependent variable that is constrained in its domain (e.g. a binary or discrete vraible) and we need to model a probability (e.g. of success) related to this variable.
 

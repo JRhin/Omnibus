@@ -1,3 +1,12 @@
+---
+title: Fixed Effect Models
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Panel_Data
+---
 #### Idea:
 Random samples are drawn *at each time period* from the same population getting [[Panel Data]]. We thus fit the always same [[Multiple Regression Model]] on the Panel Data, applying some **differencing trick** to our dataset to eliminate a so called **Fixed Effect Term** which collects all the unobserved time-invariant factors that affect the dependent variable.
 

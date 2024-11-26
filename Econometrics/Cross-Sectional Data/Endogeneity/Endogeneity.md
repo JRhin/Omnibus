@@ -1,3 +1,13 @@
+---
+title: Endogeneity
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Endogeneity
+---
 #### Endogenous Variable
 An endogenous variable is a variable in a statistical model that is changed or determined by its relationship with other variables within the model:
 - $\implies$ it correlates with other factor within the system being studied 

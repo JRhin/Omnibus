@@ -1,3 +1,12 @@
+---
+title: Graph Perceptron
+created: 2024-11-25
+authors:
+  - Engrima
+tags:
+  - Deep_Learning
+  - Graph_Models
+---
 **Assumptions**:
 - **Graph domain** $\mathcal{G(V,E)}$
 - **Training set** of observation pairs $T=\{ (\mathbf{x}, \mathbf{y})|\mathbf{x} \in \mathbb{R}^V, \mathbf{y} \in \mathbb{R}^V\}$ both defined over the nodes of the graph
