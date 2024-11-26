@@ -8,3 +8,4 @@
 - [ ]  Add some simple (CSS?) script for easily formatting images in mds
 - [ ] Write a `Contributions.md` to explain how to contribute to this repository
 - [ ] (OPT) Add a `Papers` section?
+- [x] Section of ToDo Notes
