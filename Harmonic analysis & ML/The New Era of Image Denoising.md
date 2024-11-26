@@ -1,3 +1,11 @@
+---
+title: The New Era of Image Denoising
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Harmonic_analysis_&_ML
+---
 These notes are related to the following video, named [Michael Elad - The New Era of Image Denoising](https://youtu.be/P1yBae8ZjFA?si=9tQlXJuOJ4wPeUZi)
 
 ![Michael Elad - The New Era of Image Denoising](https://youtu.be/P1yBae8ZjFA?si=9tQlXJuOJ4wPeUZi).

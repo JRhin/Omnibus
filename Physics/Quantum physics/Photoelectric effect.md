@@ -1,3 +1,12 @@
+---
+title: Photoelectric effect
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Physics
+  - Quantum_physics
+---
 **Author of the fist experiment**:
 Heinrich Hertz in 1887
 

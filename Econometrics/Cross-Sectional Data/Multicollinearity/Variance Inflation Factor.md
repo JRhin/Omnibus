@@ -1,3 +1,13 @@
+---
+title: Variance Inflation Factor
+created: 2024-09-16
+authors: Engrima
+tags:
+ - Econometrics
+ - Cross-Sectional_Data
+ - Multicollinearity
+ - ToDo
+---
 The VIF is a statistic for individual coefficients of [[Multiple Regression Model]] aimed to measure the **[[Multicollinearity]]** level for a particular independent variable.
 
 Given a general MLR model:

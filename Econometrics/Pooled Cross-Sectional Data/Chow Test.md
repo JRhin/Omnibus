@@ -1,3 +1,12 @@
+---
+title: Chow Test
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Pooled_Cross-Sectional_Data
+---
 1. Obtain the **Restricted SSR** from the pooled estimation
 2. Obtain the **Unrestricted SSR** as the sum of the SSRs for the two separately estimated time periods
 3. Use the [[F-test]] with those particular restricted and unrestricted models in mind

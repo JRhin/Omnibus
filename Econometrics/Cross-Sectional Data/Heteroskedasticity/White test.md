@@ -1,3 +1,13 @@
+---
+title: White test
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Heteroskedasticity
+---
 **Idea**:
 This test can be considered a modified version of the [[Breusch-Pagan test]]:
 - For the BP test we moved the subject for heteroskedasticity testing from $Var(u|x_1,x_2,...,x_k)$ to the squared error $u^2$ $\implies$ we want to test weather this $u^2$ is uncorrelated with all $x_{1},\dots,x_{k}$

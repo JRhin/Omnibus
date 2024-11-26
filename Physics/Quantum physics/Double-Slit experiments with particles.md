@@ -1,4 +1,12 @@
-
+---
+title: Double-Slit experiments with particles
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Physics
+  - Quantum_physics
+---
 **Setup**:
 - the experiment is the once introduced by Young in 1801 (see notes on [[Interference and diffraction]])
 - electrons from a hot filament were accelerated through $50$ kV $\implies$ $\lambda=5.4$ pm

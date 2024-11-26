@@ -1,3 +1,13 @@
+---
+title: Breusch-Pagan test
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Heteroskedasticity
+---
 1. Estimate the [[Multiple Regression Model]] by OLS, as usual. $$y=\beta_0+\beta_1x_1+\beta_2x_2 + \dots + \beta_{k}x_{k} +u$$
 2. We assume <mark style="background: #ADCCFFA6;">MRL.1</mark> - <mark style="background: #ADCCFFA6;">MRL.4</mark> from the [[Gauss-Markov Assumptions]] and we want to test <mark style="background: #ADCCFFA6;">MRL.5</mark> $$\mathrm{H}_0{:}\;Var(u|x_1,x_2,...,x_k)=\mathbb{E}(u^2|x_1,x_2,...,x_k)=\mathbb{E}(u^2)=\sigma^2$$
 3. Obtain the squared OLS residuals (one for each observation) as error estimates from the original MRL.

@@ -1,3 +1,12 @@
+---
+title: Pooled Multiple Regression Model
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Pooled_Cross-Sectional_Data
+---
 #### Idea:
 Random samples are drawn *at each time period*, pooling the resulting random samples gives us an independently pooled cross section i.e., [[Pooled Cross-Sectional Data]]. We thus fit the always same [[Multiple Regression Model]] on the pooled dataset adding the **year dummy variables**
 

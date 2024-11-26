@@ -1,4 +1,12 @@
-
+---
+title: Qualitative Information
+created: 2024-09-16
+authors: Engrima
+tags:
+ - Econometrics
+ - Cross-Sectional_Data
+ - Advanced_Relations
+---
 We must incorporate qualitative factors int a general [[Multiple Regression Model]]
 
 #### Case 1: Single Dummy Independent Variable

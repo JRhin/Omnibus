@@ -1,3 +1,12 @@
+---
+title: Quadratic form
+created: 2024-09-16
+authors: Engrima
+tags:
+ - Econometrics
+ - Cross-Sectional_Data
+ - Advanced_Relations
+---
 #### Simplest case
 - Consider the model: $$y=\beta_0+\beta_1x+\beta_2x^2+u$$
 - **Problem**: $\beta_1$ does not measure the change in $y$ with respect to $x$ since it makes no sense to hold $x_2$ fixed while changing $x$

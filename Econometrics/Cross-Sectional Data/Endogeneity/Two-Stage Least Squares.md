@@ -1,3 +1,13 @@
+---
+title: Two-Stage Least Squares
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Endogeneity
+---
 **Issue**:
 We have to extend the [[Instrumental Variables]]-based estimation process for the [[Multiple Regression Model]] to the cases where:
 1. we have **multiple possible exogenous**, i.e. relevant variables correlated with the dependent variable that are actually omitted

@@ -1,4 +1,12 @@
-
+---
+title: Particle diffraction
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Physics
+  - Quantum_physics
+---
 ![[Pasted image 20240823154307.png|300]]
 
 **Diffraction setup**:

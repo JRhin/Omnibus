@@ -1,4 +1,13 @@
-
+---
+title: Linear Probability Model
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Models
+---
 #### Problem:
 - We have seen a [[Multiple Regression Model]] when [[Qualitative Information]] is added in form of dummy independent variables. Now we use multiple regression to *explain* a qualitative event $\rightarrow$ we introduce a **Binary Dependent Variable**
 - Consider a general regression model: $$y=\beta_0+\beta_1x_1+\beta_2x_2 + \dots + \beta_{k}x_{k} +u$$
