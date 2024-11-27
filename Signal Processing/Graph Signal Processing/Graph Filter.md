@@ -5,6 +5,7 @@ authors:
   - Engrima
 tags:
   - Graph_Signal_Processing
+  - Signal_Processing
 ---
 ### Filters
 

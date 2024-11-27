@@ -1,3 +1,12 @@
+---
+title: Interaction Terms
+created: 2024-07-16
+authors: Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Advanced_Relations
+---
 **Problem**:
 
 - Sometimes the partial effect (or elasticity/semi-elasticity) of the dependent variable $y$ w.r.t. an explanatory variable $x_{i}$, depends (also) on the magnitude of another variable $x_{j}$.

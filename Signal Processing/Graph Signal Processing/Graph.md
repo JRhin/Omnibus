@@ -5,6 +5,7 @@ authors:
   - Engrima
 tags:
   - Graph_Signal_Processing
+  - Signal_Processing
 ---
 - A graph is a widely used mathematical structure designed to represent **pairwise interactions** between entities and serves as a fundamental example of topological space. 
 - It consists of a set of *nodes*, $\mathcal{V}$, and *edges*, $\mathcal{E}$ $\implies$ getting a graph $\mathcal{G(V,E)}$

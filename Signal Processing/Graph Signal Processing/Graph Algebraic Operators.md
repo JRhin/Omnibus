@@ -5,6 +5,7 @@ authors:
   - Engrima
 tags:
   - Graph_Signal_Processing
+  - Signal_Processing
 ---
 Consider a [[Graph]] $\mathcal{G(V,E)}$, where:
 - $V=|\mathcal{V|}$ $\implies$ number of nodes
