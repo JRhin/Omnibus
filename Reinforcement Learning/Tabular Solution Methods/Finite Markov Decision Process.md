@@ -19,7 +19,7 @@
 	4. fonds itself in a new state $S_{t+1}$
 - We can define an overall *trajectory* $S_{0}, A_{0}, R_{1}, S_{1}, A_{1}, R_{2}, S_{2}, \dots$
 
-![[Pasted image 20241127113536.png]]
+![[Pasted image 20241127113536 1.png]]
 
 >[!info] Why Finite MDPs?
 >In Finite MDPs the set of states, actions, and rewards ($\mathcal{S}, \mathcal{A}, \mathcal{R}$) all have a finite number of elements (are countable)
@@ -70,7 +70,7 @@ $$
 			2. the expected reward $r(s',s,a)$
 - Example page 52 of Barto&Sutton:
 
-![[Pasted image 20241127120155.png]]
+![[Pasted image 20241127120155 1.png]]
 
 
 ### Policies and Value Functions

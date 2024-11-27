@@ -1,8 +1,7 @@
 ---
 title: Logarithmic form
 created: 2024-09-16
-authors:
-  - Engrima
+authors: Engrima
 tags:
   - Econometrics
   - Cross-Sectional_Data
