@@ -1,4 +1,11 @@
-
+---
+title: Econometrics
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+---
 It consists in the development of *statistical methods* for:
 - estimating economic relationships
 - testing economic theories

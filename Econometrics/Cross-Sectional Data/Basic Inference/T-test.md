@@ -1,3 +1,13 @@
+---
+title: T-test
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Basic_Inference
+---
 Given the [[Multiple Regression Model]] setup we can define the **t statistic** for a particular OLS Estimate $\hat{\beta}_{j}$:
 $$
 t_{\hat{\beta}_{j}}\equiv\hat{\beta}_{j}/\mathrm{se}(\hat{\beta}_{j})

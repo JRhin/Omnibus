@@ -1,4 +1,13 @@
-
+---
+title: Weighted Least Squares
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Heteroskedasticity
+---
 **Problem**:
 [[Heteroskedasticity]] $\implies$ usual t and F statistics no more valid
 

@@ -1,4 +1,13 @@
-
+---
+title: Lagrange Multiplier Test
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Basic_Inference
+---
 **Idea**:
 - It is an alternative to the [[F-test]]
 - Consider the usual [[Multiple Regression Model]] with $k$ independent variables: $$y=\beta_0+\beta_1x_1+\beta_2x_2 + \dots + \beta_{k}x_{k} +u$$

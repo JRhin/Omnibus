@@ -1,4 +1,12 @@
-
+---
+title: Heisenberg Uncertainty Relationships
+created: 2024-11-25
+authors:
+  - Engrima
+tags:
+  - Physics
+  - Quantum_physics
+---
 **Goal**:
 1. We want to use *de Broglie waves* to describe particles
 2. The amplitude of the wave will tell us something about the *location* of the particle

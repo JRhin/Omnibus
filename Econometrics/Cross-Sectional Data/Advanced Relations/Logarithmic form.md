@@ -1,4 +1,13 @@
-
+---
+title: Logarithmic form
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Advanced_Relations
+---
 **Problem**:
 - The change in the interpretation when having the dependent variable in log form is generally given by the percentage change
 - We provide a more exact interpretation

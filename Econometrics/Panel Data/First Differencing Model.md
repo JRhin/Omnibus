@@ -1,3 +1,12 @@
+---
+title: First Differencing Model
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Panel_Data
+---
 #### Setup with $t=2$ periods of time
 **Idea**:
 Because the Fixed Effect $a_{i}$ is constant over time, we can difference the data across the two years. 

@@ -1,4 +1,12 @@
-
+---
+title: Wave-particle duality of light
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Physics
+  - Quantum_physics
+---
 **Key point**:
 Light has this dichotomic aspect:
 - it was usually regarded as a *wave* phenomenon since it shows inference and diffraction behaviours, typical of **[[Electromagnetic wave]]s**

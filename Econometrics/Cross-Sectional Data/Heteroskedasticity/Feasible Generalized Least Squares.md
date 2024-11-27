@@ -1,4 +1,13 @@
-
+---
+title: Feasible Generalized Least Squares
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Heteroskedasticity
+---
 **Problem**:
 - In the [[Weighted Least Squares]] case we assumed that **heteroskedasticity was known up to a multiplicative form**. 
 - But in general it is difficult to find the correct function $h(x_i)$

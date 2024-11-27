@@ -1,3 +1,11 @@
+---
+title: Graph Filter
+created: 2024-11-25
+authors:
+  - Engrima
+tags:
+  - Graph_Signal_Processing
+---
 ### Filters
 
 Classical [[Discrete Filter]]s are information processing architectures/procedures which store and manipulate signals. They are often used to preserve only relevant content of the signal in input, based on the task at hand.

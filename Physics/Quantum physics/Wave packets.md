@@ -1,3 +1,12 @@
+---
+title: Wave packets
+created: 2024-11-25
+authors:
+  - Engrima
+tags:
+  - Physics
+  - Quantum_physics
+---
 **Definition**:
 - We consider a wave packet to be a finite group of oscillations of a wave
 - As the wave packet moves, individual locations in space will oscillate with the frequency or wavelength that characterizes the wave packet

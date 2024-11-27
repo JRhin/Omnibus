@@ -1,3 +1,13 @@
+---
+title: Gauss-Markov Assumptions
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Cross-Sectional_Data
+  - Model_Assumptions
+---
 1. **Linearity in parameters** <mark style="background: #CACFD9A6;">(MLR.1)</mark> 
    $y$ is related to $x_{1},\dots,x_{k}$ and $u$ (all *random variables*) as:
 $$

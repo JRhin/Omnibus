@@ -1,3 +1,12 @@
+---
+title: Average Differencing Fixed Effect Model
+created: 2024-09-16
+authors:
+  - Engrima
+tags:
+  - Econometrics
+  - Panel_Data
+---
 It is another method for estimating unobserved effects panel data models, at least as common as [[First Differencing Model]]
 
 **Idea**:
