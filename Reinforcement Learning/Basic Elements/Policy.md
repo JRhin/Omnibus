@@ -1,0 +1,6 @@
+- A policy defines the learning agent’s way of behaving at a given time
+- It is a mapping from perceived states of the environment to **actions** to be taken when in those states
+- It is a function with different nature in different setups, e.g.:
+	- a simple lookup table
+	- may be stochastic specifying the probability of each action
+- It is the core of a reinforcement learning **agent** $\rightarrow$ it alone is sufficient to determine **behavior**

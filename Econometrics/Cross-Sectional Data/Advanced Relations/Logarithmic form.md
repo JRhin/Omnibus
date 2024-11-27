@@ -13,7 +13,7 @@
 - **Notice**: this adjustment is not as crucial for small percentage changes!
 
 #### Advantages of the log form
-1. Logs leads to coefficients with appealing interpretations $\rightarrow$ e.g. elasticity
+1. Logs leads to coefficients with appealing interpretations $\rightarrow$ e.g. **Elasticity**
 2. We can be ignorant about the units of measurement of variables appearing in logarithmic form because the slope coefficients are invariant to rescalings
 3. When $y > 0$, models using $log(y)$ often satisfy the [[Classical Linear Model Assumptions]] more closely than models using the level of y.
    **Motivation**: Strictly positive variables often have conditional distributions that are *heteroskedastic* or *skewed* $\implies$ the log can mitigate, if not eliminate, both problems.
@@ -25,4 +25,4 @@
 3. Variables that are measured in years usually appear in level form (no log)
 4. Proportions or a percentages can appear in either original or logarithmic form (tendency to the level form to avoid the log of zero)
 5. Log cannot be used if a variable takes on **zero** or **negative** values
-6. In cases where a variable $y\geq_{0}$ but can take on the value $0$ $\implies$ $log(1+y)$ is sometimes used.
+6. In cases where a variable $y\geq 0$ but can take on the value $0$ $\implies$ $log(1+y)$ is sometimes used.

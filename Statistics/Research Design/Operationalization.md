@@ -1,0 +1,2 @@
+- The process of defining the [[Measurement]] of a phenomenon (generally not directly measurable)
+- The objective is to design an *observable measure* of the phenomena we are interested in, based on the study/analysis we want to pursue 

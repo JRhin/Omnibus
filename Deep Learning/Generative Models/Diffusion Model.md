@@ -188,7 +188,7 @@ $$
 &=\mathbb{E}_{q}\left[\quad\underbrace{\ln p(\mathbf{z}_{T})}_{\text{indep. from w}}\quad+\underbrace{\sum_{t=2}^{T}\ln\frac{p(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{w})}{q(\mathbf{z}_{t}|\mathbf{z}_{t-1},\mathbf{x})}}_{\text{consistency terms}} \quad\underbrace{-\ln q(\mathbf{z}_{1}|\mathbf{x})}_{\text{indep. from w}} \quad + \underbrace{\ln p(\mathbf{x}|\mathbf{z}_{1},\mathbf{w}) }_{\text{reconstruction term}}\quad\right] 
 \end{align}
 $$
-3. *Reconstruction term* can be evaluated by **[[Monte Carlo]]** estimate:
+3. *Reconstruction term* can be evaluated by **[[Statistics/Monte Carlo]]** estimate:
 $$
 \mathbb{E}_{q}\left[\ln p(\mathbf{x}|\mathbf{z}_{1},\mathbf{w})\right]\simeq\sum_{l=1}^{L}\ln p(\mathbf{x}|\mathbf{z}_{1}^{(l)},\mathbf{w})
 $$

@@ -176,6 +176,17 @@ Here we report a table of typical use cases in econometrics (see the [[Quadratic
 > The simple regression equation is linear in the parameters $\beta_{0}$ and $\beta_{1}$ but there are no restrictions on how $y$ and $x$ relate to the original explained and explanatory variables of interest!
 > But, as we have just seen, the interpretation of the coefficients does depend on the variables definitions!
 
+>[!danger] Summing-up
+>- The Simple Linear Regression model can be seen as baseline model, but the assumptions and the theoretical characteristics of this simple setup can be very easily extended trough the solid **Linear Models** framework. 
+>- The name **Linear**, as stated in the previous warning box, refers to the linearity in the parameters. Thus we'll see that this simple model can be extended into more *representative* (and more complex) models, but always using the same rules provided in this file!
+>- For example we can create more complex **Linear Models** by:
+>	1. adding more variables to the linear regression function 
+>	   $\implies$ [[Multiple Regression Model]]
+>	2. introducing new variables given by functional forms of some independent variables (sometimes we can also decide to transform the dependent variable), such as:
+>		- [[Interaction Terms]]
+>		- [[Logarithmic form]]s
+>		- [[Quadratic form]]s
+
 ## Expected Values of OLS Estimators
 
 **Simple Regression assumptions** for unbiasedness of OLS:

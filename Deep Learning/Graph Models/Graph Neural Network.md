@@ -21,7 +21,7 @@ $$
 $$
 where $\forall l=1,\dots,L$:
 - $\mathbf{Z}_{l}\in \mathbb{R}^{V \times G_{l}}$, $l = 1,\dots,L$ $\rightarrow$ the $l$-th layer activations
-- $H_{k}^l \in \mathbb{R}^{G_{l-1} \times G_{l-1}}$ for $k=0,\dots,K$ $\rightarrow$ the $l$-th layer parameters
+- $H_{k}^l \in \mathbb{R}^{G_{l-1} \times G_{l}}$ for $k=0,\dots,K$ $\rightarrow$ the $l$-th layer parameters
 - $\sigma_{l}(\cdot)$ $\rightarrow$ the $l$-th layer element-wise activation function
 - $G_{l}$ $\rightarrow$ the $l$-th layer feature dimensionality (e.g. $G_{0}=V$, $G_{1}=F$)
 

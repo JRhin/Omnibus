@@ -1,0 +1,5 @@
+- A reward signal defines the **goal** of a [[Reinforcement Learning]] problem
+- On each time step, the environment sends to the reinforcement learning **agent** a single number called the **reward**
+- It defines what are the good and bad events for the agent
+- It is the primary basis for altering the policy: if an action selected by the [[Policy]] is followed by low reward $\implies$ the policy may be changed to select some other *action* in that situation in the future
+- Reward signals may be **stochastic functions** of the *state* of the environment and the *actions* taken

@@ -150,7 +150,7 @@ We can obtain the same statistics and the same reasoning from the goodness-of-fi
 >- Thus $R^2$ is not a completely reliable measure of the quality of the model and the factor that should determine whether an explanatory variable belongs to a model is whether it has a **nonzero partial effect** on $y$ in the population.
 
 >[!tip] Low $R^2$
->Generally, a low R2 $\implies$ it is hard to predict individual outcomes on $y$ with much accuracy.
+>Generally, a low $R^2$ $\implies$ it is hard to predict individual outcomes on $y$ with much accuracy.
 
 ## Expected Values of OLS Estimators
 
